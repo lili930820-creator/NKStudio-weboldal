@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Önfelmérő térkép | NK Studio</title>
+<meta name="description" content="10 perces ingyenes önfelmérés: működési típus, pontszám 7 területen és a 3 legfontosabb szűk keresztmetszet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   NK Studio: Önfelmérő térkép
+   Beállítások: lásd a <script> elején a CONFIG objektumot.
+   ========================================================= */
+:root{
+  --green-900:#0F1C15; --green-800:#17271F; --green-600:#2F5D46; --green-100:#E9F0EB; --green-50:#F3F6F4;
+  --gold:#C9A24A; --gold-light:#D9BC7E; --gold-ink:#8A6A2C;
+  --ink:#1F2937; --ink-strong:#111827; --muted:#4B5563; --line:#E2E8E4; --bg:#FAFBFA;
+  --crit:#B4532A; --mid:#A07A2C; --ok:#2F5D46;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{color:var(--ink-strong);text-wrap:balance;margin:0}
+p{text-wrap:pretty;margin:0}
+a{color:var(--green-600)}
+button{font:inherit}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:999px;border:0;background:var(--gold);color:var(--green-800);font-size:17px;font-weight:700;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px -14px rgba(201,162,74,.9)}
+.btn:disabled{background:#E5E7EB;color:#6B7280;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-ghost{background:transparent;border:1.5px solid #C9D4CC;color:var(--ink-strong)}
+.btn-ghost:hover{box-shadow:none;border-color:var(--green-600)}
+.btn-ghost-light{background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.screen[hidden]{display:none}
+
+/* intro */
+.hero{background:var(--green-800);color:#fff}
+.hero{min-height:100vh;display:flex;align-items:center}
+.hero .wrap{width:100%;padding-top:72px;padding-bottom:72px;display:grid;gap:22px}
+.hero h1{color:#fff;font-size:clamp(34px,5vw,54px);line-height:1.1;font-weight:800;letter-spacing:-.8px}
+.kicker{font-size:16px;font-weight:600;color:var(--gold-light)}
+.hero p.lead{font-size:20px;color:#D3DED7;max-width:640px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:15px;font-weight:600;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+
+/* progress + questions */
+.step{padding-top:40px;padding-bottom:72px;display:grid;gap:26px}
+.progress-meta{display:flex;justify-content:space-between;gap:12px;font-size:15px;font-weight:600;color:var(--muted)}
+.bar{height:8px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar>span{display:block;height:100%;background:var(--green-600);border-radius:999px;transition:width .3s}
+.area-title h2{font-size:clamp(28px,4vw,40px);line-height:1.15;font-weight:800;letter-spacing:-.5px}
+.area-title p{color:var(--muted)}
+.q{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;margin:0 0 16px}
+.q legend{float:left;width:100%;font-size:19px;font-weight:700;color:var(--ink-strong);line-height:1.4;padding:0;margin:0 0 14px}
+.q legend+*{clear:both}
+.q legend .n{color:var(--gold-ink);margin-right:4px}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt label{display:flex;align-items:center;min-height:56px;padding:10px 14px;border-radius:14px;border:1.5px solid #DCE5DF;background:#fff;font-size:16px;font-weight:600;line-height:1.3;cursor:pointer;transition:border-color .15s,background .15s,color .15s}
+.opt label:hover{border-color:var(--green-600)}
+.opt input:checked+label{background:var(--green-600);border-color:var(--green-600);color:#fff}
+.opt input:focus-visible+label{outline:3px solid var(--gold);outline-offset:2px}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.hint{font-size:15px;color:#6B7280;font-weight:500}
+
+/* contact */
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;display:grid;gap:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.field{display:grid;gap:6px}
+.field label{font-size:15px;font-weight:600;color:var(--ink-strong)}
+.field input,.field select{min-height:50px;padding:0 14px;border:1.5px solid #C9D4CC;border-radius:12px;font:inherit;font-size:16px;background:#fff;color:var(--ink-strong)}
+.field input:focus,.field select:focus{border-color:var(--green-600);outline:none}
+.check{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--muted)}
+.check input{width:22px;height:22px;margin-top:2px;accent-color:var(--green-600);flex:0 0 22px}
+.err{color:var(--crit);font-size:15px;font-weight:600}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* result */
+.res-hero{background:var(--green-800);color:#fff}
+.res-hero .wrap{max-width:1040px;padding-top:56px;padding-bottom:56px;display:flex;flex-wrap:wrap;gap:32px;align-items:center}
+.res-hero .txt{flex:999 1 440px;display:grid;gap:12px}
+.res-hero h1{color:#fff;font-size:clamp(34px,5vw,56px);line-height:1.05;font-weight:800;letter-spacing:-1px}
+.res-hero p{font-size:20px;color:#D3DED7}
+.score{flex:0 0 180px;height:180px;border-radius:50%;border:10px solid var(--gold);display:grid;place-content:center;text-align:center;background:#1C3126}
+.score b{font-size:64px;line-height:1;font-weight:800;letter-spacing:-2px}
+.score span{font-size:13px;color:#A9BDB0;font-weight:600}
+.flag{justify-self:start;padding:8px 14px;border-radius:999px;font-size:14px;font-weight:700}
+.flag.lead{background:#FBE9E1;color:#8A2E12}
+.flag.ai{background:#F6EEDB;color:#6E5323}
+.res-body{max-width:1040px;margin:0 auto;padding:48px 20px 24px;display:flex;flex-wrap:wrap;gap:28px}
+.res-body>div{flex:1 1 440px;min-width:0}
+.panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;display:grid;gap:16px}
+.panel h2,.res-body h2{font-size:22px;font-weight:700}
+.arow{display:grid;gap:6px}
+.arow .top{display:flex;justify-content:space-between;gap:12px;font-size:16px;font-weight:600}
+.track{height:12px;border-radius:999px;background:#EEF1EF;overflow:hidden}
+.track>span{display:block;height:100%;border-radius:999px}
+.t3{display:grid;gap:12px}
+.t3 .item{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;display:flex;gap:16px;align-items:flex-start}
+.t3 .num{flex:0 0 40px;height:40px;border-radius:50%;background:var(--green-800);color:var(--gold-light);display:grid;place-content:center;font-weight:800}
+.t3 .name{font-weight:700;font-size:18px;color:var(--ink-strong)}
+.t3 .rec{font-size:16px;color:var(--muted)}
+.cta{max-width:1040px;margin:0 auto;padding:24px 20px 80px}
+.cta .box{background:#fff;border:2px solid var(--gold);border-radius:24px;padding:30px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.cta .box>div:first-child{flex:999 1 420px;display:grid;gap:8px}
+.cta .label{font-size:15px;font-weight:600;color:var(--gold-ink)}
+.cta .sprint{font-size:24px;font-weight:800;line-height:1.25;color:var(--ink-strong)}
+.notice{max-width:1040px;margin:0 auto;padding:0 20px}
+.notice .box{background:var(--green-100);border-radius:16px;padding:14px 18px;font-size:16px;color:var(--green-800)}
+.notice .box.warn{background:#FBE9E1;color:#8A2E12}
+h1,h2,h3,h4{text-wrap:balance}
+p,li,legend,small,span,div{text-wrap:pretty}
+header.top{position:sticky;top:0;z-index:10;background:rgba(15,28,21,.96);border-bottom:1px solid rgba(255,255,255,.08)}
+header.top .in{max-width:1240px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+header.top .logo{display:flex}
+header.top .logo img{height:58px;width:auto;display:block}
+@media (max-width:560px){header.top .logo img{height:48px}}
+header.top span{font-size:15px;font-weight:700;color:var(--gold-light)}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a class="logo" href="/" aria-label="NK Studio főoldal"><img src="/img/nk-logo.png" alt="NK Studio"></a>
+  <span>Önfelmérő térkép</span>
+</div></header>
+
+<!-- 1. INTRO -->
+<section class="screen" id="s-intro">
+  <div class="hero">
+    <div class="wrap">
+      <p class="kicker">Ingyenes önfelmérés · kb. 10 perc</p>
+      <h1>Hol tart ma a céged működése?</h1>
+      <p class="lead">21 rövid kérdés, 7 terület. A végén azonnal látod a működési típusodat, a pontszámodat és a 3 legfontosabb szűk keresztmetszetet.</p>
+      <div class="chips" aria-label="A felmért területek">
+        <span class="chip">Pénzügy</span><span class="chip">Értékesítés és ügyfélnyilvántartás</span><span class="chip">Marketing</span><span class="chip">Folyamatok és HR</span><span class="chip">Eszközök és automatizálás</span><span class="chip">AI-érettség</span><span class="chip">Vezetői kapacitás</span>
+      </div>
+      <div class="row"><button class="btn" type="button" id="btn-start">Kezdjük</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. AREA STEPS -->
+<section class="screen" id="s-area" hidden>
+  <div class="wrap step">
+    <div>
+      <div class="progress-meta"><span id="p-label"></span><span id="p-count"></span></div>
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="p-bar"><span id="p-fill" style="width:0%"></span></div>
+    </div>
+    <div class="area-title"><h2 id="a-name" tabindex="-1"></h2></div>
+    <div id="a-questions"></div>
+    <div class="nav">
+      <button class="btn btn-ghost" type="button" id="btn-back">← Vissza</button>
+      <div class="row"><span class="hint" id="next-hint">Válaszolj mindhárom kérdésre</span><button class="btn" type="button" id="btn-next" disabled>Tovább →</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. CONTACT -->
+<section class="screen" id="s-contact" hidden>
+  <div class="wrap step">
+    <div class="area-title" style="display:grid;gap:10px">
+      <p class="kicker" style="color:var(--gold-ink)">Kész vagy!</p>
+      <h2 tabindex="-1" id="c-title">Hova küldjük az eredményedet?</h2>
+      <p style="color:var(--muted)">Az eredményt rögtön megmutatjuk. A 2-3 oldalas PDF-et javaslatokkal személyesen átnézzük, és munkaidőben 1 órán belül, munkaidőn kívül a következő munkanap reggel 9-ig elküldjük.</p>
+    </div>
+    <form class="card" id="f-contact" novalidate>
+      <div class="grid2">
+        <div class="field"><label for="f-name">Név</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="f-company">Cégnév</label><input id="f-company" name="company" autocomplete="organization"></div>
+        <div class="field"><label for="f-size">Létszám</label>
+          <select id="f-size" name="size"><option value="2-5">2-5 fő</option><option value="6-10" selected>6-10 fő</option><option value="11-25">11-25 fő</option><option value="26-50">26-50 fő</option><option value="50+">50 felett</option></select></div>
+        <div class="field"><label for="f-industry">Iparág</label>
+          <select id="f-industry" name="industry"><option>B2B szolgáltatás</option><option>Kereskedelem / webshop</option><option>Gyártás / kivitelezés</option><option>Ingatlan</option><option>Informatika</option><option>Oktatás</option><option>Egyéb</option></select></div>
+        <div class="field"><label for="f-stack">Irodai környezet</label>
+          <select id="f-stack" name="stack"><option value="m365">Microsoft 365</option><option value="google">Google Workspace</option><option value="both">Mindkettő</option><option value="none">Egyik sem</option></select></div>
+        <div class="field" style="grid-column:1/-1"><label for="f-goal">Fő célod a következő 12 hónapban</label>
+          <select id="f-goal" name="goal"><option value="growth">Növekedés</option><option value="stability">Stabilabb működés</option><option value="leader">Kevesebb vezetői terhelés</option><option value="cost">Költségcsökkentés</option></select></div>
+      </div>
+      <div class="hp" aria-hidden="true"><label for="f-website">Weboldal</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
+      <label class="check"><input type="checkbox" id="f-consent" required><span>Hozzájárulok, hogy az NK Studio az adataimat az eredmény elküldésére és a kapcsolatfelvételre kezelje. <a id="privacy-link" href="#" target="_blank" rel="noopener">Adatkezelési tájékoztató</a></span></label>
+      <p class="err" id="f-error" role="alert" hidden></p>
+      <div class="row"><button class="btn" type="submit" id="btn-submit">Mutasd az eredményt</button><button class="btn btn-ghost" type="button" id="btn-back2">← Vissza</button></div>
+    </form>
+  </div>
+</section>
+
+<!-- 4. RESULT -->
+<section class="screen" id="s-result" hidden>
+  <div class="res-hero"><div class="wrap">
+    <div class="txt">
+      <p class="kicker">A céged működési típusa</p>
+      <h1 id="r-type" tabindex="-1"></h1>
+      <p id="r-msg"></p>
+      <span class="flag lead" id="r-flag-lead" hidden>Jelző: vezetői szűk keresztmetszet</span>
+      <span class="flag ai" id="r-flag-ai" hidden>Jelző: AI-használat szabályok nélkül</span>
+    </div>
+    <div class="score" aria-label="Működési index"><b id="r-overall"></b><span>Működési index / 100</span></div>
+  </div></div>
+  <div class="notice" style="margin-top:24px"><div class="box" id="r-notice">A részletes PDF-riportot elküldjük a megadott e-mail-címre.</div></div>
+  <div class="res-body">
+    <div class="panel"><h2>Pontszám területenként</h2><div id="r-areas" style="display:grid;gap:16px"></div></div>
+    <div style="display:grid;gap:14px;align-content:start"><h2>A 3 legfontosabb szűk keresztmetszet</h2><div class="t3" id="r-top3"></div></div>
+  </div>
+  <div class="cta"><div class="box">
+    <div><span class="label">Javasolt első lépés</span><div class="sprint" id="r-sprint"></div><p style="color:var(--muted)">Beszéljük át 45 percben, és megkapod a teljes, személyre szabott Fejlesztési térképet.</p></div>
+    <div style="display:grid;gap:10px"><a class="btn" id="r-cal" href="#" target="_blank" rel="noopener">Időpontot foglalok</a></div>
+  </div></div>
+</section>
+
+<script>
+/* =========================================================
+   CONFIG: élesítés előtt töltsd ki
+   ========================================================= */
+const CONFIG = {
+  WEBHOOK_URL: 'https://hook.eu1.make.com/9kagmbiu8rgyiuxy6w1cdfutp7dtr41q', // Make > Webhooks > Custom webhook
+  CALENDAR_URL: 'https://meetings-eu1.hubspot.com/lili-karpati',                   // pl. HubSpot Meetings vagy Calendly
+  PRIVACY_URL: '/adatkezeles',
+  VERSION: '2026-10-v2'
+};
+
+/* =========================================================
+   KÉRDÉSEK ÉS LOGIKA (megegyezik a munkadokumentummal)
+   Válaszok pontja a felsorolás sorrendjében: 3, 2, 1, 0
+   ========================================================= */
+const AREAS = [
+ {id:'penz',name:'Pénzügy és kontroll',qs:[
+  ['Mikor látod a havi eredményt?',['Naprakész kimutatásból','Hó végén pár napon belül','A könyvelőtől 3-4 hét múlva','Csak év végén']],
+  ['Van cashflow-előrejelzésed a következő 8-12 hétre?',['Igen, rendszeresen frissítve','Időnként, Excelben','Fejben','Nincs']],
+  ['Tudod, melyik ügyfél, termék vagy projekt hozza a legtöbb fedezetet?',['Pontosan, riportból','Nagyjából','Meglátás alapján','Nem']]],
+  low:'Hetente 15 perc pénzügyi áttekintés és egy egyszerű táblázat a következő 8 hét bevételeiről és kiadásairól, hogy ne utólag tudd meg, hol tartasz.',
+  mid:'Egy oldal, ahol kézi frissítés nélkül látod a bevételt, a kiadást és azt, melyik munka hozza a legtöbb hasznot.',
+  sprint:'Pénzügyi áttekintő oldal (30 nap alatt)'},
+ {id:'sales',name:'Értékesítés és ügyfélnyilvántartás',qs:[
+  ['Hol vannak az érdeklődők és az ajánlatok?',['CRM-ben, mindenki használja','CRM-ben, de csak részben','Excelben, e-mailekben','Főleg fejben']],
+  ['Mi történik egy kiküldött ajánlat után?',['Automatikus emlékeztető megy','Kézzel emlékeztetünk','Ha eszünkbe jut','Nincs rendje']],
+  ['Látod előre a következő 1-3 hónap várható bevételét?',['Az ajánlatok kimutatásából','Becsléssel','Csak a már aláírtat','Nem']]],
+  low:'Egy közös ügyfélnyilvántartás, ahol minden érdeklődő és ajánlat látszik, hogy egy se vesszen el.',
+  mid:'Automatikus emlékeztető minden ajánlat után, és egy lista arról, mennyi bevétel várható a következő hónapokban.',
+  sprint:'Ügyfélnyilvántartás automatikus utánkövetéssel (30 nap alatt)'},
+ {id:'mark',name:'Marketing',qs:[
+  ['Honnan jönnek az új ügyfelek?',['Több mért csatornából','1-2 csatornából, részben mérve','Főleg ajánlásból','Nem tudjuk pontosan']],
+  ['Mérhető, mi hoz eredményt?',['Igen, rendszeres riport','Részben','Ritkán nézzük','Nem']],
+  ['Hogyan jut el a weboldali érdeklődő az értékesítéshez?',['Automatikusan a CRM-be','E-mailben, kézzel átvezetve','Néha elvesznek','Nincs ilyen csatorna']]],
+  low:'Egy csatorna, aminek mérni tudjátok az eredményét, és hogy a weboldalon érkező érdeklődő magától az értékesítéshez kerüljön.',
+  mid:'Közös kimutatás arról, melyik csatornából lesz valódi ügyfél, és automatikus levelek az érdeklődőknek.',
+  sprint:'Az érdeklődők útja a weboldaltól az értékesítésig (30 nap alatt)'},
+ {id:'fol',name:'Folyamatok és HR',qs:[
+  ['Le vannak írva a kulcsfolyamatok?',['Igen, naprakészen','Részben','Néhány régi dokumentum','Csak fejben']],
+  ['Hogyan tanul be egy új munkatárs?',['Strukturált onboarding','Van ellenőrzőlista','Menet közben','Kaotikusan']],
+  ['Ha egy kulcsember 2 hétre kiesik?',['Gond nélkül megy tovább','Lassul','Több dolog elakad','Megáll']]],
+  low:'A 3 legfontosabb folyamat leírása egy-egy oldalon, és egy táblázat arról, ki miért felel.',
+  mid:'Betanítási lista az új kollégáknak és egy közös hely, ahol minden belső tudás megtalálható.',
+  sprint:'Folyamatok leírása és felelősök kijelölése (30 nap alatt)'},
+ {id:'tech',name:'Eszközök és automatizálás',qs:[
+  ['Hány óra megy el hetente cégszinten kézi adatmásolásra?',['2 óránál kevesebb','2-5 óra','5-15 óra','15 óránál több']],
+  ['Össze vannak kötve a rendszereitek?',['Igen, automatikusan','Néhány','Alig','Egyáltalán nem']],
+  ['Vannak futó automatizmusaitok?',['Több, dokumentált és felügyelt','Néhány','1-2, de nem tudjuk, hogyan működik','Nincs']]],
+  low:'Annak az 1-2 feladatnak az automatizálása, ami most a legtöbb kézi adatmásolással jár.',
+  mid:'A meglévő automatizmusok átnézése: mi fut, ki felel érte, és mi történik, ha elakad.',
+  sprint:'1-2 kézi folyamat automatizálása (30 nap alatt)'},
+ {id:'ai',name:'AI-érettség',qs:[
+  ['Hogyan használjátok az AI-t?',['Folyamatokba építve','Rendszeresen, egyénileg','Néhányan kipróbálták','Nem használjuk']],
+  ['Van szabályotok arra, milyen adat kerülhet AI-eszközbe?',['Írásos, betartják','Szóban','Nincs, de foglalkoztat','Nincs']],
+  ['Mennyire rendezett a dokumentumtáratok?',['Egyértelmű, naprakész','Nagyjából','Szétszórt','Káosz']]],
+  low:'Egy rövid, írásos szabály arról, milyen adat kerülhet AI-eszközbe, és a közös dokumentumok rendbetétele.',
+  mid:'Egy AI-asszisztens egy konkrét feladatra, ahol a végső szót mindig ember mondja ki.',
+  sprint:'AI-adatbiztonsági átvilágítás vagy AI-asszisztens egy feladatra'},
+ {id:'vez',name:'Vezetői kapacitás',qs:[
+  ['Heti hány órát töltesz operatív tűzoltással?',['5 óránál kevesebbet','5-10 órát','10-20 órát','20 óránál többet']],
+  ['Hány fejlesztési ötlet áll hónapok óta?',['Egy sem','1-2','3-5','5-nél több']],
+  ['Hány olyan döntés fut át rajtad, ami delegálható lenne?',['Kevés','Néhány','Sok','Szinte minden']]],
+  low:'Egy lista arról, mit tudsz csak te eldönteni és mit adhatsz át, és egy külsős fejlesztési vezető, aki leveszi rólad a megvalósítást.',
+  mid:'Heti 30 perces fejlesztési egyeztetés és egy rövid állapotlista, hogy az ötletek ne álljanak hónapokig.',
+  sprint:'Külsős fejlesztési vezető (havi együttműködés)'}
+];
+const PRIORITY = ['vez','sales','penz','tech','ai','fol','mark']; // holtversenynél
+const TYPES = [
+ {max:34, id:'tuzolto',  name:'Tűzoltó üzemmód',      msg:'A cég ma a vezető energiájából működik. Először az alapokat kell rendbe tenni, mielőtt bármit automatizálunk.'},
+ {max:54, id:'kaosz',    name:'Növekedési káosz',     msg:'A kereslet már megvan. Most a működésnek kell felnőnie hozzá.'},
+ {max:74, id:'szetszort',name:'Szétszórt rendszerek', msg:'Az eszközök megvannak, de nem beszélnek egymással. A legnagyobb nyereség az összekötésben van.'},
+ {max:100,id:'skala',    name:'Skálázásra kész',      msg:'Rendezett alapokon álltok. Itt az AI-munkatárs hozza a következő ugrást.'}
+];
+
+
+/* ---------- "Mit tehetsz már a héten" (saját, előre megírt tippek, nem AI) ---------- */
+const WEEK = {
+ penz:['Péntekenként nézd meg 15 percben: mennyi pénz van a számlán, mennyi a kintlévőség, és mit kell kifizetni a következő 2 hétben.',
+       'Kérd meg a könyvelőt, hogy az előző havi eredményt a hónap 10. napjáig küldje el, ne a hónap végén.',
+       'Írd fel a 10 legnagyobb ügyfeledet, és mellé, mennyi munka és mennyi bevétel jött tőlük tavaly. Már ebből látszik, kivel éri meg dolgozni.'],
+ sales:['Gyűjts egy táblázatba minden nyitott ajánlatot: kinek ment, mennyiért, mikor, és ki felel érte.',
+        'Vezess be egy szabályt: minden ajánlat után 3 munkanapon belül van egy telefon vagy e-mail. Az ajánlat elküldésekor tedd be a naptárba.',
+        'Nézd végig az elmúlt 3 hónap elveszett ajánlatait: hányra nem jött válasz, mert senki nem kereste újra az ügyfelet?'],
+ mark:['Kérdezd meg az elmúlt 10 új ügyfelet, honnan hallottak rólatok, és írd fel a válaszokat.',
+       'Küldj be egy próbaüzenetet a saját weboldali űrlapotokon, és figyeld, mennyi idő múlva és kitől kapsz választ.',
+       'Válaszd ki azt az egy csatornát, ami a legtöbb ügyfelet hozza, és a következő hónapban arra koncentrálj.'],
+ fol:['Válaszd ki a folyamatot, ami a legtöbbször elakad, és kérd meg azt a kollégát, aki a legjobban csinálja, hogy írja le egy oldalon.',
+      'Írd fel, ki helyettesíti a 3 kulcsembert, ha 2 hétre kiesnek, és beszéld meg velük.',
+      'Készíts egy egyszerű ellenőrzőlistát arról, mit kell megtanulnia egy új kollégának az első héten.'],
+ tech:['Kérd meg a csapatot, hogy egy hétig jegyezze fel, mikor másol át adatot egyik helyről a másikra, és mennyi ideig tart.',
+       'Készíts listát az összes szoftverről, amit használtok: ki használja, ki fizeti, és mire való.',
+       'Ha van futó automatizmusotok, írd le egy mondatban, mit csinál és ki felel érte. Ami gazdátlan, az előbb-utóbb elromlik.'],
+ ai:['Kérdezd meg a csapatot, ki milyen AI-eszközt használ és mire. Nem ellenőrzés, csak felmérés.',
+     'Írj le három mondatot arról, milyen adat nem kerülhet AI-eszközbe, például ügyféladat, szerződés vagy bérek.',
+     'Válassz ki egy ismétlődő írásos feladatot, például az ajánlatleveleket, és próbáld ki egy hétig AI-segítséggel, emberi ellenőrzéssel.'],
+ vez:['Egy héten át írd fel, milyen kérdésekkel keresnek meg. A hét végén jelöld meg, melyiket dönthette volna el más.',
+      'Válaszd ki a legrégebben álló fejlesztési ötletet, és foglalj a naptáradban egy órát, amikor csak azzal foglalkozol.',
+      'Jelölj ki egy döntéstípust, például az 50 ezer forint alatti vásárlásokat, amit mostantól a csapat dönt el nélküled.']
+};
+
+/* ---------- Mennyibe kerül a mostani működés (csak a kitöltő saját számaiból) ---------- */
+const WEEKS_PER_YEAR = 46; // szabadságok és ünnepek nélkül
+function fmtRange(lo,hi){ return hi ? `${lo*WEEKS_PER_YEAR}-${hi*WEEKS_PER_YEAR}` : `több mint ${lo*WEEKS_PER_YEAR}`; }
+function months(h){ const m=Math.round(h*WEEKS_PER_YEAR/160*2)/2; return String(m).replace('.',','); }
+function monthsRange(lo,hi){ return hi ? `${months(lo)}-${months(hi)}` : `több mint ${months(lo)}`; }
+function cost(answers){
+  const FTE = WEEKS_PER_YEAR*40; // egy ember teljes éves munkaideje órában
+  const items = [];
+  const mk = (label, who, lo, hi)=>{
+    const yLo=lo*WEEKS_PER_YEAR, yHi=hi?hi*WEEKS_PER_YEAR:null;
+    const pLo=Math.min(100,Math.round(yLo/FTE*100)), pHi=hi?Math.min(100,Math.round(yHi/FTE*100)):pLo;
+    items.push({label,
+      pctText: hi?`${pLo}-${pHi}%`:`${pLo}%+`,
+      loPct: pLo, hiPct: pHi,
+      text: hi ? `Heti ${lo}-${hi} óra ${who}. Ez évente ${yLo}-${yHi} óra, nagyjából ${monthsRange(lo,hi)} hónapnyi munkaidő.`
+               : `Heti több mint ${lo} óra ${who}. Ez évente több mint ${yLo} óra, ${monthsRange(lo,null)} hónapnyi munkaidő.`});
+  };
+  const copy = {2:[2,5],1:[5,15],0:[15,null]}[(answers.tech||[])[0]];
+  if(copy) mk('Kézi adminisztráció, adatmásolás','a csapattól', copy[0], copy[1]);
+  const fire = {2:[5,10],1:[10,20],0:[20,null]}[(answers.vez||[])[0]];
+  if(fire) mk('Operatív tűzoltás','tőled, amit nem a cég fejlesztésére fordítasz', fire[0], fire[1]);
+  return {show: items.length>0, items, fte: FTE,
+          note:`A teljes kör egy ember egész éves munkaideje (${FTE} óra, évi ${WEEKS_PER_YEAR} munkahéttel).`};
+}
+function answersText(answers){
+  return AREAS.map(a=>a.qs.map((q,qi)=>{
+    const v=(answers[a.id]||[])[qi]; return `${a.name} | ${q[0]} Válasz: ${v===undefined?'-':q[1][3-v]}`;
+  }).join('\n')).join('\n');
+}
+
+/* ---------- Pontozás (tiszta függvény, tesztelhető) ---------- */
+function score(answers){ // answers: {penz:[3,2,1], ...}
+  const areas = AREAS.map(a=>{
+    const sum = (answers[a.id]||[]).reduce((s,v)=>s+(v||0),0);
+    const pct = Math.round(sum/9*100);
+    const band = pct<40?'crit':(pct<70?'mid':'ok');
+    return {id:a.id,name:a.name,score:pct,band,
+      bandName:{crit:'Kritikus',mid:'Fejlesztendő',ok:'Rendben'}[band],
+      rec: band==='crit'?a.low:(band==='mid'?a.mid:'Ez a terület rendben van, erre lehet építeni.'),
+      sprint:a.sprint};
+  });
+  const overall = Math.round(areas.reduce((s,a)=>s+a.score,0)/areas.length);
+  const type = TYPES.find(t=>overall<=t.max);
+  const sorted = areas.slice().sort((x,y)=>x.score-y.score||PRIORITY.indexOf(x.id)-PRIORITY.indexOf(y.id));
+  const by = id=>areas.find(a=>a.id===id);
+  const flags = {
+    leadership: by('vez').score<40,
+    aiRisk: by('ai').score<40 && ((answers.ai||[])[0]||0)>=2
+  };
+  return {areas,overall,type:{id:type.id,name:type.name,message:type.msg},
+          top3:sorted.slice(0,3).map(a=>({id:a.id,name:a.name,score:a.score,band:a.band,rec:a.rec})),
+          sprint:sorted[0].sprint,flags};
+}
+
+/* ---------- Állapot és képernyők ---------- */
+const state = {step:0, answers:{}, startedAt:new Date().toISOString()};
+const $ = id=>document.getElementById(id);
+function show(id){ ['s-intro','s-area','s-contact','s-result'].forEach(s=>$(s).hidden=(s!==id)); window.scrollTo({top:0,behavior:'smooth'}); }
+
+function renderArea(){
+  const i = state.step-1, a = AREAS[i];
+  const ans = state.answers[a.id] || (state.answers[a.id]=[undefined,undefined,undefined]);
+  $('a-name').textContent = a.name;
+  $('p-label').textContent = `${state.step}. terület a ${AREAS.length}-ből`;
+  const box = $('a-questions'); box.innerHTML='';
+  a.qs.forEach((q,qi)=>{
+    const fs = document.createElement('fieldset'); fs.className='q';
+    const lg = document.createElement('legend');
+    const n = document.createElement('span'); n.className='n'; n.textContent=(i*3+qi+1)+'.';
+    lg.append(n, document.createTextNode(' '+q[0])); fs.append(lg);
+    const opts = document.createElement('div'); opts.className='opts';
+    q[1].forEach((t,oi)=>{
+      const v = 3-oi, id=`q-${a.id}-${qi}-${oi}`;
+      const w = document.createElement('div'); w.className='opt';
+      const inp = document.createElement('input'); inp.type='radio'; inp.name=`q-${a.id}-${qi}`; inp.id=id; inp.value=v;
+      if(ans[qi]===v) inp.checked=true;
+      inp.addEventListener('change',()=>{ ans[qi]=v; updateNav(); });
+      const lb = document.createElement('label'); lb.htmlFor=id; lb.textContent=t;
+      w.append(inp,lb); opts.append(w);
+    });
+    fs.append(opts); box.append(fs);
+  });
+  updateNav();
+  $('a-name').focus({preventScroll:true});
+}
+function updateNav(){
+  const a = AREAS[state.step-1], ans = state.answers[a.id];
+  const done = ans.filter(v=>v!==undefined).length;
+  const total = (state.step-1)*3+done, pct = Math.round(total/(AREAS.length*3)*100);
+  $('p-count').textContent = `${done} / 3 válasz`;
+  $('p-fill').style.width = pct+'%'; $('p-bar').setAttribute('aria-valuenow',pct);
+  $('btn-next').disabled = done<3; $('next-hint').hidden = done===3;
+}
+
+$('btn-start').onclick = ()=>{ state.step=1; show('s-area'); renderArea(); };
+$('btn-back').onclick = ()=>{ if(state.step<=1){ state.step=0; show('s-intro'); } else { state.step--; renderArea(); } };
+$('btn-next').onclick = ()=>{
+  if(state.step<AREAS.length){ state.step++; renderArea(); window.scrollTo({top:0,behavior:'smooth'}); }
+  else { show('s-contact'); $('c-title').focus({preventScroll:true}); }
+};
+$('btn-back2').onclick = ()=>{ state.step=AREAS.length; show('s-area'); renderArea(); };
+$('privacy-link').href = CONFIG.PRIVACY_URL;
+
+/* ---------- Beküldés ---------- */
+$('f-contact').addEventListener('submit', async e=>{
+  e.preventDefault();
+  const err = $('f-error'); err.hidden=true;
+  const name=$('f-name').value.trim(), email=$('f-email').value.trim();
+  if(!name){ err.textContent='Add meg a neved.'; err.hidden=false; $('f-name').focus(); return; }
+  if(!/^\S+@\S+\.\S+$/.test(email)){ err.textContent='Adj meg egy érvényes e-mail-címet.'; err.hidden=false; $('f-email').focus(); return; }
+  if(!$('f-consent').checked){ err.textContent='A riport elküldéséhez szükség van a hozzájárulásodra.'; err.hidden=false; $('f-consent').focus(); return; }
+  if($('f-website').value){ return; } // honeypot: robot
+
+  const result = score(state.answers);
+  const params = new URLSearchParams(location.search);
+  const payload = {
+    version: CONFIG.VERSION,
+    submittedAt: new Date().toISOString(),
+    startedAt: state.startedAt,
+    contact: { name, email,
+      company: $('f-company').value.trim(), size: $('f-size').value,
+      industry: $('f-industry').value, stack: $('f-stack').value, goal: $('f-goal').value,
+      consent: true },
+    answers: state.answers,
+    scores: Object.fromEntries(result.areas.map(a=>[a.id,a.score])),
+    areas: result.areas,
+    overall: result.overall,
+    type: result.type,
+    flags: result.flags,
+    top3: result.top3,
+    sprint: result.sprint,
+    week: { id: result.top3[0].id, name: result.top3[0].name, tips: WEEK[result.top3[0].id] },
+    cost: cost(state.answers),
+    answersText: answersText(state.answers),
+    source: { page: location.href, referrer: document.referrer,
+      utm_source: params.get('utm_source')||'', utm_medium: params.get('utm_medium')||'', utm_campaign: params.get('utm_campaign')||'' }
+  };
+
+  const btn = $('btn-submit'); btn.disabled=true; btn.textContent='Küldés…';
+  let sent = false;
+  try{
+    // Űrlap-kódolás: nincs CORS-előellenőrzés; Make-ben a "payload" mezőt Parse JSON-nal bontjuk ki.
+    const body = new URLSearchParams({payload: JSON.stringify(payload)});
+    await fetch(CONFIG.WEBHOOK_URL, {method:'POST', mode:'no-cors', body});
+    sent = true;
+  }catch(ex){ console.error('Webhook hiba', ex); }
+  btn.disabled=false; btn.textContent='Mutasd az eredményt';
+  renderResult(result, sent);
+  if(window.dataLayer) window.dataLayer.push({event:'onfelmeres_kitoltve', overall:result.overall, tipus:result.type.id});
+});
+
+/* ---------- Eredmény ---------- */
+function renderResult(r, sent){
+  $('r-type').textContent = r.type.name; $('r-msg').textContent = r.type.message;
+  $('r-overall').textContent = r.overall;
+  $('r-flag-lead').hidden = !r.flags.leadership; $('r-flag-ai').hidden = !r.flags.aiRisk;
+  const colors = {crit:'var(--crit)',mid:'var(--mid)',ok:'var(--ok)'};
+  const box = $('r-areas'); box.innerHTML='';
+  r.areas.forEach(a=>{
+    const row = document.createElement('div'); row.className='arow';
+    const top = document.createElement('div'); top.className='top';
+    const n = document.createElement('span'); n.textContent=a.name;
+    const s = document.createElement('span'); s.style.color=colors[a.band]; s.textContent=`${a.score} · ${a.bandName}`;
+    top.append(n,s);
+    const tr = document.createElement('div'); tr.className='track';
+    const f = document.createElement('span'); f.style.width=Math.max(a.score,3)+'%'; f.style.background=colors[a.band];
+    tr.append(f); row.append(top,tr); box.append(row);
+  });
+  const t3 = $('r-top3'); t3.innerHTML='';
+  r.top3.forEach((t,i)=>{
+    const it = document.createElement('div'); it.className='item';
+    const num = document.createElement('span'); num.className='num'; num.textContent=i+1;
+    const c = document.createElement('div');
+    const nm = document.createElement('div'); nm.className='name'; nm.textContent=`${t.name} · ${t.score}/100`;
+    const rc = document.createElement('div'); rc.className='rec'; rc.textContent=t.rec;
+    c.append(nm,rc); it.append(num,c); t3.append(it);
+  });
+  $('r-sprint').textContent = r.sprint;
+  $('r-cal').href = CONFIG.CALENDAR_URL;
+  const nt = $('r-notice');
+  if(sent){ nt.className='box'; nt.textContent='Köszönjük! A részletes PDF-riportot munkaidőben 1 órán belül, munkaidőn kívül a következő munkanap reggel 9-ig elküldjük.'; }
+  else { nt.className='box warn'; nt.textContent='Az eredményt látod, de a riport kiküldése most nem sikerült. Írj nekünk, és elküldjük kézzel.'; }
+  show('s-result'); $('r-type').focus({preventScroll:true});
+}
+
+// Teszteléshez a konzolból: NKScore({penz:[2,2,1],...})
+window.NKScore = score;
+</script>
+</body>
+</html>

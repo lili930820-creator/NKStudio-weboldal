@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI-Előfeltétel Felmérés | NK Studio</title>
+<meta name="description" content="10 perces ingyenes felmérés: kész a céged az AI bevezetésére? 30 állítás, 6 terület, azonnali eredmény és első lépések.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* NK Studio | AI-Előfeltétel Felmérés. Beállítások: a <script> elején a CONFIG objektum. */
+:root{
+  --green-900:#0F1C15; --green-800:#17271F; --green-600:#2F5D46; --green-100:#E6EFE9; --green-50:#F3F6F4;
+  --gold:#C9A24A; --gold-light:#D9BC7E; --gold-ink:#8A6A2C;
+  --ink:#1F2937; --ink-strong:#111827; --muted:#4B5563; --line:#E2E8E4; --bg:#F8FAF8;
+  --crit:#B4532A; --mid:#A07A2C; --ok:#2F5D46;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{color:var(--ink-strong);text-wrap:balance;margin:0}
+p{text-wrap:pretty;margin:0}
+a{color:var(--green-600)}
+button{font:inherit}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:999px;border:0;background:var(--gold);color:var(--green-800);font-size:17px;font-weight:800;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px -14px rgba(201,162,74,.9)}
+.btn:disabled{background:#E5E7EB;color:#6B7280;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-ghost{background:#fff;border:1.5px solid #C9D4CC;color:var(--ink-strong)}
+.btn-ghost:hover{box-shadow:none;border-color:var(--green-600)}
+.btn-ghost-light{background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.screen[hidden]{display:none}
+
+header.top{position:sticky;top:0;z-index:10;background:rgba(15,28,21,.96);border-bottom:1px solid rgba(255,255,255,.08)}
+header.top .in{max-width:1240px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+header.top .logo{display:flex}
+header.top .logo img{height:58px;width:auto;display:block}
+@media (max-width:560px){.logo img{height:48px}}
+header.top span{font-size:15px;font-weight:700;color:var(--gold-light)}
+
+/* intro */
+.hero{background:var(--green-800);color:#fff}
+.hero .wrap{max-width:1040px;padding-top:72px;padding-bottom:72px;display:flex;flex-wrap:wrap;gap:40px;align-items:center}
+.hero .txt{flex:999 1 460px;display:grid;gap:20px}
+.hero h1{color:#fff;font-size:clamp(34px,5vw,58px);line-height:1.05;font-weight:900;letter-spacing:-1.4px}
+.kicker{font-size:14px;font-weight:800;letter-spacing:2px;color:var(--gold-light)}
+.hero p.lead{font-size:20px;color:#D3DED7;max-width:620px}
+.dims{flex:1 1 280px;display:grid;gap:10px}
+.dims div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:12px 16px;font-weight:700;font-size:16px}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.facts span{font-size:15px;font-weight:600;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+
+/* questions */
+.step{padding-top:40px;padding-bottom:72px;display:grid;gap:24px}
+.progress-meta{display:flex;justify-content:space-between;gap:12px;font-size:15px;font-weight:600;color:var(--muted)}
+.bar{height:8px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar>span{display:block;height:100%;background:var(--green-600);border-radius:999px;transition:width .3s}
+.area{background:#E9F0EB;border:1px solid #D3E0D7;border-radius:28px;padding:28px 24px;display:grid;gap:14px}
+.area .dim-title{display:flex;gap:16px;align-items:center;padding-bottom:6px}
+.area .badge{flex:0 0 52px;height:52px;border-radius:50%;background:var(--green-800);color:var(--gold-light);display:grid;place-content:center;font-weight:900;font-size:20px}
+.dim-title .tx{display:grid;gap:2px}
+@media (max-width:560px){.area{padding:20px 14px;border-radius:22px}.area .badge{flex-basis:42px;height:42px;font-size:17px}}
+.dim-title .k{font-size:13px;font-weight:800;letter-spacing:2px;color:var(--gold-ink)}
+.dim-title h2{font-size:clamp(24px,3.4vw,32px);line-height:1.15;font-weight:900;letter-spacing:-.5px}
+.dim-title p{color:var(--muted)}
+.q{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 22px 20px;margin:0}
+.q legend{float:left;width:100%;font-size:19px;font-weight:700;color:var(--ink-strong);line-height:1.4;padding:0;margin:0 0 14px}
+.q legend+*{clear:both}
+.q legend .n{color:var(--gold-ink);margin-right:4px}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;padding:8px 6px;border-radius:14px;border:1.5px solid #DCE5DF;background:#fff;font-size:14px;font-weight:600;line-height:1.2;text-align:center;cursor:pointer;transition:border-color .15s,background .15s}
+.opt label b{font-size:19px;font-weight:800}
+.opt label:hover{border-color:var(--green-600)}
+.opt input:checked+label{background:var(--green-600);border-color:var(--green-600);color:#fff}
+.opt input:focus-visible+label{outline:3px solid var(--gold);outline-offset:2px}
+.scale-legend{display:flex;justify-content:space-between;font-size:13px;color:#6B7280;margin-top:6px}
+@media (max-width:560px){.opt label span{display:none}.opt label{min-height:52px}}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.hint{font-size:15px;color:#6B7280;font-weight:500}
+
+/* result */
+.res-hero{background:var(--green-800);color:#fff}
+.res-hero .wrap{max-width:1040px;padding-top:56px;padding-bottom:56px;display:flex;flex-wrap:wrap;gap:32px;align-items:center}
+.res-hero .txt{flex:999 1 440px;display:grid;gap:12px}
+.res-hero h1{color:#fff;font-size:clamp(34px,5vw,56px);line-height:1.05;font-weight:900;letter-spacing:-1px}
+.res-hero p{font-size:20px;color:#D3DED7}
+.score{flex:0 0 180px;height:180px;border-radius:50%;border:10px solid var(--gold);display:grid;place-content:center;text-align:center;background:#1C3126}
+.score b{font-size:64px;line-height:1;font-weight:900;letter-spacing:-2px}
+.score span{font-size:13px;color:#A9BDB0;font-weight:600}
+.res-body{max-width:1040px;margin:0 auto;padding:48px 20px 16px;display:flex;flex-wrap:wrap;gap:28px}
+.res-body>div{flex:1 1 440px;min-width:0;display:grid;gap:14px;align-content:start}
+.panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;display:grid;gap:16px}
+h2.sec{font-size:22px;font-weight:800}
+.arow{display:grid;gap:6px}
+.arow .top{display:flex;justify-content:space-between;gap:12px;font-size:16px;font-weight:600}
+.track{height:12px;border-radius:999px;background:#EEF1EF;overflow:hidden}
+.track>span{display:block;height:100%;border-radius:999px}
+.weak{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 22px;display:grid;gap:10px}
+.weak .hd{display:flex;gap:14px;align-items:center}
+.weak .num{flex:0 0 38px;height:38px;border-radius:50%;background:var(--green-800);color:var(--gold-light);display:grid;place-content:center;font-weight:800}
+.weak .name{font-weight:800;font-size:18px;color:var(--ink-strong)}
+.weak .lbl{font-size:12px;font-weight:800;letter-spacing:1.5px}
+.weak .risk .lbl{color:var(--crit)}
+.weak .act .lbl{color:var(--green-600)}
+.weak.good{border-color:#BFD6C7;background:#F1F7F3}
+.weak .good-msg .lbl{color:var(--green-600)}
+.congrats{background:var(--green-800);color:#fff;border-radius:22px;padding:28px;display:grid;gap:14px}
+.congrats h3{color:#fff;font-size:24px;font-weight:900;line-height:1.2}
+.congrats p{color:#DCE6DF;font-size:17px}
+.congrats .btn{justify-self:start}
+.weak p{font-size:16px;color:var(--ink)}
+.bench{max-width:1040px;margin:0 auto;padding:12px 20px}
+.bench .box{background:var(--green-100);border-radius:18px;padding:18px 22px;display:grid;gap:6px;font-size:16px;color:var(--green-800)}
+.bench small{font-size:13px;color:#4B5563}
+
+/* booking */
+.book{background:var(--green-900);color:#fff;margin-top:40px}
+.book .in{max-width:1100px;margin:0 auto;padding:72px 20px 56px;display:flex;flex-wrap:wrap;gap:40px;align-items:center}
+.book .in>.txt{flex:1 1 420px;min-width:0}
+.book .again{flex:1 1 100%}
+.book h2{color:#fff;font-size:clamp(30px,4vw,46px);line-height:1.08;font-weight:900;letter-spacing:-1px}
+.book .lead{font-size:19px;color:#C3D3C8;max-width:720px}
+.book ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;font-size:17px}
+.book li{display:flex;gap:12px;align-items:flex-start}
+.book li svg{flex:0 0 22px;margin-top:3px}
+.cal{flex:1 1 380px;min-width:0;background:#fff;color:var(--ink);border-radius:26px;padding:32px;display:grid;gap:16px;box-shadow:0 40px 80px -40px rgba(0,0,0,.7)}
+.cal h3{font-size:22px;font-weight:900;color:var(--ink-strong)}
+.cal p{font-size:16px;color:var(--muted)}
+.cal .chips{display:flex;flex-wrap:wrap;gap:8px}
+.cal .chips span{font-size:14px;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--green-100);color:var(--green-800)}
+.cal .btn{width:100%}
+.cal small{font-size:13px;color:var(--muted)}
+.again{text-align:center;padding:20px}
+.again button{background:transparent;border:0;color:#A9BDB0;text-decoration:underline;cursor:pointer;font-size:15px;min-height:44px}
+footer{background:var(--green-900);color:#A9BDB0;font-size:14px;border-top:1px solid rgba(255,255,255,.08)}
+footer .in{max-width:1040px;margin:0 auto;padding:24px 20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:#A9BDB0}
+h1,h2,h3,h4{text-wrap:balance}
+p,li,legend,small,span,div{text-wrap:pretty}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="in">
+  <a class="logo" href="/" aria-label="NK Studio főoldal"><img id="logo" src="/img/nk-logo.png" alt="NK Studio"></a>
+  <span>AI-Előfeltétel Felmérés</span>
+</div></header>
+
+<main>
+<!-- INTRO -->
+<section id="s-intro" class="screen hero">
+  <div class="wrap">
+    <div class="txt">
+      <span class="kicker">INGYENES FELMÉRÉS · 5 PERC</span>
+      <h1>Kész a céged az AI-ra?</h1>
+      <p class="lead">Az AI felerősíti azt, ami már ott van. Ha a működés rendezett, gyorsít, ha nem, nagyobb káoszt kapsz.<br>18 állítás alapján megmutatjuk, hol tart a céged, és hol csúszna el egy AI-bevezetés.</p>
+      <div class="facts"><span>18 állítás</span><span>6 terület</span><span>Azonnali eredmény</span><span>Nem kérünk e-mail-címet</span></div>
+      <div class="row"><button class="btn" id="btn-start" type="button">Kezdjük</button></div>
+    </div>
+    <div class="dims" aria-label="A felmérés területei">
+      <div>Leírt folyamatok</div><div>Felelősségek</div><div>Adminisztráció és adatok</div>
+      <div>Eszközök és rendszerek</div><div>Emberek és szabályok</div><div>Vezetői fókusz</div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP -->
+<section id="s-step" class="screen" hidden>
+  <div class="wrap step">
+    <div>
+      <div class="progress-meta"><span id="p-label">1. oldal a 3-ból</span><span id="p-count">0 / 6 válasz</span></div>
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="p-bar"><span id="p-fill" style="width:0%"></span></div>
+    </div>
+    <p class="hint" id="d-hint" tabindex="-1">Mennyire igazak ezek az állítások a cégedre? 1 = egyáltalán nem igaz, 5 = teljesen igaz.</p>
+    <div id="d-questions" style="display:grid;gap:40px"></div>
+    <div class="nav">
+      <button class="btn btn-ghost" id="btn-back" type="button">Vissza</button>
+      <span class="hint" id="next-hint">Válaszolj mind a 6 állításra a továbblépéshez</span>
+      <button class="btn" id="btn-next" type="button" disabled>Tovább</button>
+    </div>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section id="s-result" class="screen" hidden>
+  <div class="res-hero"><div class="wrap">
+    <div class="txt">
+      <span class="kicker">A CÉGED SZINTJE</span>
+      <h1 id="r-level" tabindex="-1">Rendezés alatt</h1>
+      <p id="r-msg"></p>
+    </div>
+    <div class="score" aria-label="AI-előfeltétel pontszám"><b id="r-score">0</b><span>pont a 100-ból</span></div>
+  </div></div>
+
+  <div class="res-body">
+    <div>
+      <h2 class="sec">Pontszám területenként</h2>
+      <div class="panel" id="r-dims"></div>
+    </div>
+    <div>
+      <h2 class="sec" id="r-weak-title">Itt csúszna el most egy AI-bevezetés</h2>
+      <div id="r-weak" style="display:grid;gap:12px"></div>
+    </div>
+  </div>
+
+  <div class="bench"><div class="box">
+    <div>Az AI-t használó magyar cégek 83%-ának nincs belső szabálya a használatára.</div>
+    <small>Források: Eurostat (AI-használat a vállalkozásokban), GKI-felmérés 2025.</small>
+  </div></div>
+
+  <section class="book" id="idopont" aria-labelledby="book-title">
+    <div class="in">
+      <div class="txt" style="display:grid;gap:14px">
+        <span class="kicker">INGYENES, 45 PERCES ONLINE BESZÉLGETÉS</span>
+        <h2 id="book-title">Beszéljük át az eredményedet.</h2>
+        <ul>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D9BC7E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Megnézzük a 3 leggyengébb területedet a valós működésetek alapján.</li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D9BC7E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Szétválogatjuk, mi az, ami gyorsan megvalósítható, és mi az, ami hosszabb projekt.</li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D9BC7E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Nincs értékesítési nyomás, és nem kötelez semmire.</li>
+        </ul>
+      </div>
+      <div class="cal">
+        <h3>Válassz időpontot</h3>
+        <p>A gombra kattintva a naptárunkban kiválaszthatod a neked megfelelő napot és órát. Egy perc az egész.</p>
+        <div class="chips"><span>45 perc</span><span>Online</span><span>Ingyenes</span></div>
+        <a class="btn" id="btn-book" href="https://meetings-eu1.hubspot.com/lili-karpati" target="_blank" rel="noopener">Időpontot foglalok</a>
+        <small>A foglalás után e-mailben megkapod a videóhívás linkjét. Inkább telefonálnál? +36 70 361 4044</small>
+      </div>
+      <div class="again"><button type="button" id="btn-restart">Újrakezdem a felmérést</button></div>
+    </div>
+  </section>
+</section>
+</main>
+
+<footer><div class="in"><span>© NK Studio</span><span><a href="/adatkezeles">Adatkezelés</a> · <a href="/impresszum">Impresszum</a></span></div></footer>
+
+<script>
+/* =========================================================
+   CONFIG
+   ========================================================= */
+const CONFIG = {
+  CALENDAR_URL: 'https://meetings-eu1.hubspot.com/lili-karpati',
+  VERSION: '2026-10-ai-v2'
+};
+
+/* =========================================================
+   TARTALOM: 6 terület, 3-3 állítás, 3 oldal, 1-5 skála
+   ========================================================= */
+const DIMS = [
+ {id:'fol', name:'Leírt folyamatok', desc:'Le van-e írva, hogyan dolgoztok.',
+  qs:['A 3-5 legfontosabb folyamatunk (például ajánlatadás, megrendelés, számlázás) le van írva.',
+      'Ha egy kolléga 2 hétre kiesik, a feladatait más is el tudja végezni a leírás alapján.',
+      'Az ismétlődő feladatokhoz van ellenőrzőlistánk vagy sablonunk.'],
+  risk:'Az AI egy le nem írt folyamatot nem tud követni. Mindenki másképp használná, és az eredmény is kollégánként más lenne.',
+  act:'Válaszd ki azt a folyamatot, ami a legtöbb időtöket viszi el egy héten, és írd le, ki csinálja meg, milyen alfeladatok vannak, és milyen eszközzel dolgozik.'},
+ {id:'raci', name:'Felelősségek', desc:'Tudja-e mindenki, ki miért felel.',
+  qs:['Minden kulcsfeladatnál egyértelmű, ki a végső felelős.',
+      'Az apró döntések nem a vezetőnél akadnak el.',
+      'Ha valami elcsúszik, gyorsan kiderül, kinek a feladata volt.'],
+  risk:'Ha nem tudni, ki ellenőrzi az AI munkáját, a hibák gazdátlanok maradnak, és végül mind a vezetőnél kötnek ki.',
+  act:'Írd le az 5 legfontosabb feladatot, és azt, hogy kinek a felelőssége, ki a döntéshozó, és kit kell tájékoztatni.'},
+ {id:'adat', name:'Adminisztráció és adatok', desc:'Egy helyen vannak-e az adatok.',
+  qs:['Az ügyfél-, ajánlat- és számlaadatok egy helyen vannak, nem e-mailekben szétszórva.',
+      'Az adminisztratív határidőket (NAV, könyvelő, bérek) naptár vagy rendszer követi, nem valakinek a fejében vannak.',
+      'A havi vezetői számokat (bevétel, kintlévőség, kapacitás) 1 órán belül elő tudjuk állítani.'],
+  risk:'Az AI csak abból dolgozik, amit megtalál. Ha az adatok e-mailekben és fejekben vannak, hiányos vagy rossz választ ad.',
+  act:'Jelöld ki az ügyféladatok egyetlen helyét (ügyfélnyilvántartás vagy egy közös táblázat). A következő hónapban minden új adat csak oda kerüljön.'},
+ {id:'eszk', name:'Eszközök és rendszerek', desc:'Tudjátok-e, mi mivel van összekötve.',
+  qs:['Tudjuk, milyen szoftvereket használunk, ki a gazdájuk, és mennyibe kerülnek.',
+      'Legalább egy ismétlődő feladatot már automatizáltunk.',
+      'Ugyanazt az adatot nem rögzítjük két helyen.'],
+  risk:'Ha nem tudod, mi mihez kapcsolódik, egy új AI-eszköz csak egy újabb különálló sziget lesz a többi mellett.',
+  act:'Készíts listát a szoftvereitekről: mire valók, ki használja, ki fizeti, és mivel vannak összekötve.'},
+ {id:'szab', name:'Emberek és szabályok', desc:'Biztonságosan használja-e a csapat az AI-t.',
+  qs:['Írásban rögzítettük, mire használhatjuk az AI-eszközöket és mire nem (például ügyféladat bevitele).',
+      'A munkatársak kaptak alapképzést az AI biztonságos használatáról.',
+      'Tudjuk, ki használ AI-t a cégnél és mire.'],
+  risk:'Szabály nélkül a kollégák ügyfél- és pénzügyi adatokat is bemásolnak AI-eszközökbe, és erről senki nem tud.',
+  act:'Segítünk az AI-szabályzat elkészítésében, vedd fel velünk a kapcsolatot.'},
+ {id:'vez', name:'Vezetői fókusz', desc:'Van-e cél, idő és keret.',
+  qs:['Meg tudom nevezni azt az 1-2 üzleti problémát, amit AI-jal vagy automatizálással meg akarok oldani.',
+      'Tudom, milyen mérőszámból fogom látni, hogy a fejlesztés beválik (például kevesebb munkaóra vagy kevesebb hiba).',
+      'Hetente legalább 2 órát tudok a fejlesztésre szánni.'],
+  risk:'Konkrét cél és heti idő nélkül az AI-bevezetés kipróbálás marad, és pár hét után abbamarad.',
+  act:'Írd le egy mondatban, melyik problémát akarod megoldani, és melyik számból látod majd, hogy sikerült. Foglalj a naptáradban heti 2 órát.'}
+];
+const PAGES = [[0,1],[2,3],[4,5]]; // oldalanként 2 terület
+const SCALE = [[1,'Egyáltalán nem'],[2,'Inkább nem'],[3,'Részben'],[4,'Inkább igen'],[5,'Teljesen']];
+const PRIORITY = ['fol','raci','adat','szab','vez','eszk']; // holtversenynél ez a sorrend
+const LEVELS = [
+ {max:39, name:'Tűzoltó üzemmód', msg:'Ha most vezetnél be AI-t, több káoszt hozna, mint amennyit megold. Először írd le a 3 legfontosabb folyamatot, és jelöld ki a felelősöket.'},
+ {max:59, name:'Rendezés alatt', msg:'Az alapok megvannak, de a működés még egy-két emberen múlik. Az első lépés: az adminisztráció és az ügyféladatok egy helyre.'},
+ {max:79, name:'AI-kész alapok', msg:'Jöhet 1-2 célzott AI-próba. Válaszd ki a leghasznosabb felhasználást, és előtte írj belső AI-szabályt.'},
+ {max:100,name:'Skálázható', msg:'Rendezett alapokon álltok. Jöhet az automatizálás és az AI-asszisztensek bevezetése több folyamatban is.'}
+];
+
+/* ---------- Pontozás (tiszta függvény) ---------- */
+function score(ans){ // ans: {fol:[1..5 x5], ...}
+  const dims = DIMS.map(d=>{
+    const v = ans[d.id]||[];
+    const pct = Math.round(v.reduce((s,x)=>s+((x||1)-1),0)/(d.qs.length*4)*100);
+    const band = pct<40?'crit':(pct<70?'mid':'ok');
+    return {id:d.id,name:d.name,score:pct,band,bandName:{crit:'Kritikus',mid:'Fejlesztendő',ok:'Rendben'}[band],risk:d.risk,act:d.act};
+  });
+  const overall = Math.round(dims.reduce((s,d)=>s+d.score,0)/dims.length);
+  const level = LEVELS.find(l=>overall<=l.max);
+  const weak = dims.slice().sort((a,b)=>a.score-b.score||PRIORITY.indexOf(a.id)-PRIORITY.indexOf(b.id)).slice(0,3);
+  return {dims,overall,level,weak};
+}
+
+/* ---------- Képernyők ---------- */
+const state = {step:0, ans:{}};
+const $ = id=>document.getElementById(id);
+function show(id){ ['s-intro','s-step','s-result'].forEach(s=>$(s).hidden=(s!==id)); window.scrollTo({top:0,behavior:'smooth'}); }
+
+function pageQs(){ return PAGES[state.step-1].reduce((n,di)=>n+DIMS[di].qs.length,0); }
+function renderStep(){
+  const page = PAGES[state.step-1];
+  $('p-label').textContent = `${state.step}. oldal a ${PAGES.length}-ból`;
+  const box = $('d-questions'); box.innerHTML='';
+  let num = PAGES.slice(0,state.step-1).flat().reduce((n,di)=>n+DIMS[di].qs.length,0);
+  page.forEach(di=>{
+    const d = DIMS[di];
+    const ans = state.ans[d.id] || (state.ans[d.id]=Array(d.qs.length).fill(undefined));
+    const grp = document.createElement('section'); grp.className='area';
+    grp.setAttribute('aria-label', d.name);
+    const t = document.createElement('div'); t.className='dim-title';
+    t.innerHTML = `<span class="badge" aria-hidden="true">${di+1}</span><div class="tx"><span class="k"></span><h2></h2><p></p></div>`;
+    t.querySelector('.k').textContent = `TERÜLET ${di+1} / ${DIMS.length}`;
+    t.querySelector('h2').textContent = d.name; t.querySelector('p').textContent = d.desc;
+    grp.append(t);
+    d.qs.forEach((q,qi)=>{
+      num++;
+      const fs = document.createElement('fieldset'); fs.className='q';
+      const lg = document.createElement('legend');
+      const n = document.createElement('span'); n.className='n'; n.textContent=num+'.';
+      lg.append(n, document.createTextNode(' '+q)); fs.append(lg);
+      const sc = document.createElement('div'); sc.className='scale';
+      SCALE.forEach(([v,tx])=>{
+        const id=`q-${d.id}-${qi}-${v}`;
+        const w=document.createElement('div'); w.className='opt';
+        const inp=document.createElement('input'); inp.type='radio'; inp.name=`q-${d.id}-${qi}`; inp.id=id; inp.value=v;
+        if(ans[qi]===v) inp.checked=true;
+        inp.addEventListener('change',()=>{ ans[qi]=v; updateNav(); });
+        const lb=document.createElement('label'); lb.htmlFor=id;
+        const b=document.createElement('b'); b.textContent=v; const s=document.createElement('span'); s.textContent=tx;
+        lb.append(b,s); w.append(inp,lb); sc.append(w);
+      });
+      fs.append(sc); grp.append(fs);
+    });
+    box.append(grp);
+  });
+  updateNav();
+  $('d-hint').focus({preventScroll:true});
+}
+function updateNav(){
+  const page = PAGES[state.step-1];
+  const done = page.reduce((n,di)=>n+state.ans[DIMS[di].id].filter(v=>v!==undefined).length,0);
+  const need = pageQs();
+  const all = DIMS.reduce((n,d)=>n+d.qs.length,0);
+  const before = PAGES.slice(0,state.step-1).flat().reduce((n,di)=>n+DIMS[di].qs.length,0);
+  const pct=Math.round((before+done)/all*100);
+  $('p-count').textContent = `${done} / ${need} válasz`;
+  $('p-fill').style.width = pct+'%'; $('p-bar').setAttribute('aria-valuenow',pct);
+  $('btn-next').disabled = done<need; $('next-hint').hidden = done===need;
+  $('btn-next').textContent = state.step===PAGES.length ? 'Mutasd az eredményt' : 'Tovább';
+}
+$('btn-start').onclick = ()=>{ state.step=1; show('s-step'); renderStep(); };
+$('btn-back').onclick = ()=>{ if(state.step<=1){ state.step=0; show('s-intro'); } else { state.step--; renderStep(); window.scrollTo({top:0,behavior:'smooth'}); } };
+$('btn-next').onclick = ()=>{
+  if(state.step<PAGES.length){ state.step++; renderStep(); window.scrollTo({top:0,behavior:'smooth'}); }
+  else renderResult(score(state.ans));
+};
+$('btn-restart').onclick = ()=>{ state.step=0; state.ans={}; show('s-intro'); };
+
+/* ---------- Eredmény ---------- */
+function renderResult(r){
+  $('r-level').textContent=r.level.name; $('r-msg').textContent=r.level.msg; $('r-score').textContent=r.overall;
+  const colors={crit:'var(--crit)',mid:'var(--mid)',ok:'var(--ok)'};
+  const dims=$('r-dims'); dims.innerHTML='';
+  r.dims.forEach(d=>{
+    const row=document.createElement('div'); row.className='arow';
+    const top=document.createElement('div'); top.className='top';
+    const n=document.createElement('span'); n.textContent=d.name;
+    const s=document.createElement('span'); s.style.color=colors[d.band]; s.textContent=`${d.score} · ${d.bandName}`;
+    top.append(n,s);
+    const tr=document.createElement('div'); tr.className='track';
+    const f=document.createElement('span'); f.style.width=Math.max(d.score,3)+'%'; f.style.background=colors[d.band];
+    tr.append(f); row.append(top,tr); dims.append(row);
+  });
+  const wk=$('r-weak'); wk.innerHTML='';
+  const GOOD=80;
+  const allTop = r.dims.every(d=>d.score===100);
+  if(allTop){
+    $('r-weak-title').textContent='Minden területen rendben vagytok';
+    const el=document.createElement('div'); el.className='congrats';
+    el.innerHTML=`<h3>Gratulálunk!</h3><p>Minden területen 100 pontot értetek el: rendezett a működésetek, lehet építeni rá. Ha szeretnéd, hogy elkezdjük az AI bevezetését, vedd fel velünk a kapcsolatot.</p><a class="btn" href="#idopont">Felveszem a kapcsolatot</a>`;
+    wk.append(el);
+  } else {
+    $('r-weak-title').textContent = r.weak.some(d=>d.score<GOOD) ? 'Itt csúszna el most egy AI-bevezetés' : 'Erős alapokon álltok';
+    r.weak.forEach((d,i)=>{
+      const el=document.createElement('div'); el.className='weak'+(d.score>=GOOD?' good':'');
+      if(d.score>=GOOD){
+        el.innerHTML=`<div class="hd"><span class="num">${i+1}</span><span class="name"></span></div>
+          <div class="good-msg"><div class="lbl">EZ MÁR JÓL MŰKÖDIK</div><p>Ezen a területen a céged már jól működik. Erre nyugodtan lehet építeni az AI-bevezetést.</p></div>`;
+      } else {
+        el.innerHTML=`<div class="hd"><span class="num">${i+1}</span><span class="name"></span></div>
+          <div class="risk"><div class="lbl">AMI MOST ELCSÚSZNA</div><p></p></div>
+          <div class="act"><div class="lbl">ELSŐ LÉPÉS, MÁR A HÉTEN</div><p></p></div>`;
+        el.querySelector('.risk p').textContent=d.risk;
+        el.querySelector('.act p').textContent=d.act;
+      }
+      el.querySelector('.name').textContent=`${d.name} · ${d.score}/100`;
+      wk.append(el);
+    });
+  }
+  show('s-result'); $('r-level').focus({preventScroll:true});
+  if(window.dataLayer) window.dataLayer.push({event:'ai_felmeres_kitoltve', pontszam:r.overall, szint:r.level.name});
+}
+
+// Teszteléshez a konzolból: NKAiScore({fol:[3,2,...],...})
+window.NKAiScore = score;
+</script>
+</body>
+</html>

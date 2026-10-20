@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NK Studio – Szolgáltatások</title>
+<meta name="description" content="AI-megoldások, CRM-szolgáltatások és értékesítést segítő szolgáltatások, előre leírt eredménnyel.">
+<link rel="icon" type="image/png" href="/img/nk-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAFBFA}
+h1,h2,h3,h4{text-wrap:balance}
+p,li,blockquote,div,span,a,figcaption{text-wrap:pretty}
+.nk-just{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.nk-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.nk-row>article{flex:0 1 calc((100% - 32px)/3);min-width:280px;box-sizing:border-box}
+.nk-row2>article{flex-basis:calc((100% - 16px)/2)}
+@media (max-width:960px){.nk-row>article{flex-basis:calc((100% - 16px)/2)}}
+@media (max-width:640px){.nk-row>article{flex-basis:100%}}
+a{color:#2F5D46}a:hover{color:#17271F}
+.nk-btn{transition:transform .2s ease,box-shadow .2s ease}
+.nk-btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px -14px rgba(201,162,74,.9)}
+.nk-card{transition:border-color .2s ease,box-shadow .2s ease}
+.nk-card:hover{border-color:#9DB8A6;box-shadow:0 18px 40px -28px rgba(23,39,31,.35)}
+.nk-chip{transition:background .2s ease,color .2s ease}
+.nk-chip:hover{background:#2F5D46;color:#FFFFFF}
+.nk-nav{display:flex}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+@media (max-width: 900px){.nk-nav{display:none}}
+</style>
+</head>
+<body>
+<div lang="hu" style="width: 100%; background: #FAFBFA; color: #1F2937; font-family: 'Inter', system-ui, sans-serif; font-size: 18px; line-height: 1.65">
+
+<header style="position: sticky; top: 0; z-index: 10; background: rgba(15,28,21,0.96); border-bottom: 1px solid rgba(255,255,255,0.08)">
+<div style="max-width: 1160px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap">
+<a href="/" style="display: flex; text-decoration: none"><img src="/img/nk-logo.png" alt="NK Studio, főoldal" style="height: 58px; width: auto; display: block"></a>
+<nav class="nk-nav" aria-label="Fő navigáció" style="align-items: center; gap: 28px; font-size: 16px; font-weight: 500">
+<a href="/" style="color: #FFFFFF; text-decoration: none">Főoldal</a>
+<a href="/szolgaltatasok" style="color: #D9BC7E; text-decoration: none">Szolgáltatások</a>
+<a href="/blog" style="color: #FFFFFF; text-decoration: none">Blog</a>
+</nav>
+<a class="nk-btn" href="/" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #C9A24A; color: #17271F; font-size: 16px; font-weight: 700; text-decoration: none">Ingyenes konzultáció</a>
+</div>
+</header>
+
+<!-- HERO -->
+<section style="background: #17271F; color: #FFFFFF">
+<div style="max-width: 1160px; margin: 0 auto; padding: 80px 24px 72px; display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; font-size: 16px; font-weight: 600; color: #D9BC7E">Szolgáltatások</p>
+<h1 style="margin: 0; font-size: clamp(38px, 5vw, 60px); line-height: 1.1; font-weight: 800; letter-spacing: -1px; max-width: 820px">Pontosan tudod, mit kapsz a pénzedért.</h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.6; color: #D3DED7; max-width: 680px">Három fő területen dolgozunk. Fix áron, előre leírt eredménnyel.</p>
+<nav aria-label="Szolgáltatáscsoportok" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px">
+<a class="nk-chip" href="#ai" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 999px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.28); color: #FFFFFF; font-size: 17px; font-weight: 600; text-decoration: none">1. AI-megoldások</a>
+<a class="nk-chip" href="#crm" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 999px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.28); color: #FFFFFF; font-size: 17px; font-weight: 600; text-decoration: none">2. CRM-szolgáltatások</a>
+<a class="nk-chip" href="#ertekesites" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 999px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.28); color: #FFFFFF; font-size: 17px; font-weight: 600; text-decoration: none">3. Értékesítést segítő szolgáltatások</a>
+</nav>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section style="max-width: 1160px; margin: 0 auto; padding: 88px 24px 40px; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 640px">
+<p style="margin: 0; font-size: 16px; font-weight: 600; color: #2F5D46">Így dolgozunk együtt</p>
+<h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 42px); line-height: 1.15; font-weight: 800; letter-spacing: -0.6px">Négy lépés.<br>Tőled összesen kb. 3 óra.</h2>
+</div></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+<div style="background: #FFFFFF; border: 1px solid #E2E8E4; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span style="width: 44px; height: 44px; border-radius: 50%; background: #2F5D46; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px">1</span>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700">Beszélgetünk</h3>
+<p style="margin: 0; font-size: 17px; color: #4B5563">Elmondod, mi akad el. Megmutatjuk, mivel érdemes kezdeni.</p>
+<p style="margin: auto 0 0; padding-top: 10px; border-top: 1px solid #EEF1EF; font-size: 16px; font-weight: 600; color: #2F5D46">Tőled: 45 perc · ingyenes</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E2E8E4; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span style="width: 44px; height: 44px; border-radius: 50%; background: #2F5D46; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px">2</span>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700">Fix áras ajánlat</h3>
+<p style="margin: 0; font-size: 17px; color: #4B5563">Egy oldalon: mit készítünk el, meddig tart, mennyibe kerül. Nincs apróbetű.</p>
+<p style="margin: auto 0 0; padding-top: 10px; border-top: 1px solid #EEF1EF; font-size: 16px; font-weight: 600; color: #2F5D46">Tőled: 10 perc és egy igen</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E2E8E4; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span style="width: 44px; height: 44px; border-radius: 50%; background: #2F5D46; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px">3</span>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700">Megcsináljuk</h3>
+<p style="margin: 0; font-size: 17px; color: #4B5563">Mi építjük meg. Hetente röviden jelentjük, hol tartunk.</p>
+<p style="margin: auto 0 0; padding-top: 10px; border-top: 1px solid #EEF1EF; font-size: 16px; font-weight: 600; color: #2F5D46">Tőled: heti 15 perc</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E2E8E4; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span style="width: 44px; height: 44px; border-radius: 50%; background: #C9A24A; color: #17271F; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px">4</span>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700">Átadjuk</h3>
+<p style="margin: 0; font-size: 17px; color: #4B5563">Betanítjuk a csapatot, és írásos leírást kapsz mindenről.</p>
+<p style="margin: auto 0 0; padding-top: 10px; border-top: 1px solid #EEF1EF; font-size: 16px; font-weight: 600; color: #2F5D46">Tőled: 1 óra</p>
+</div>
+</div>
+<!-- every project includes -->
+<div style="display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; padding: 20px 24px; border-radius: 18px; background: #E9F0EB">
+<span style="font-weight: 700; color: #17271F">Minden projektben benne van:</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 17px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F5D46" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>Fix ár előre</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 17px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F5D46" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>Hetente jelentjük, hol tartunk</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 17px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F5D46" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>Betanítás és leírás</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 17px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F5D46" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>Megvalósítási garancia</span>
+</div>
+</section>
+
+<!-- GROUP 1: AI -->
+<section id="ai" style="max-width: 1160px; margin: 0 auto; padding: 72px 24px 24px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; gap: 20px; align-items: flex-start; max-width: 760px">
+<span style="flex: 0 0 60px; height: 60px; border-radius: 18px; background: #17271F; display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D9BC7E" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"></path><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path></svg></span>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 42px); line-height: 1.15; font-weight: 800; letter-spacing: -0.6px">AI-megoldások</h2>
+<p style="margin: 0; color: #4B5563">Az ismétlődő munkát AI és automatizáció végzi, biztonságosan és a te jóváhagyásoddal.</p>
+</div>
+</div>
+<div class="nk-row">
+
+<article class="nk-card" style="background: #FFFFFF; border: 1px solid #E2E8E4; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">AI-működés audit</h3>
+<p style="margin: 0; font-size: 17px; color: #4B5563">Megnézzük, hol hoz valódi időt az AI a cégednél, és mi az, amit nem érdemes rábízni.</p>
+<p style="margin: 0; font-size: 17px"><b style="color: #17271F">Amit kapsz:</b> írásos terv a lehetőségekkel, a költségekkel és egy 90 napos ütemtervvel.</p>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 20px; padding-top: 12px; border-top: 1px solid #EEF1EF; font-size: 16px; color: #374151"><span><b>Idő:</b> kb. 1 hét</span><span><b>Tőled:</b> 1 óra</span></div>
+</article>
+
+<article class="nk-card" style="background: #FFFFFF; border: 1px solid #E2E8E4; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">AI-asszisztens egy folyamatra</h3>
+<p style="margin: 0; font-size: 17px; color: #4B5563">Például ajánlatot ír, leveleket válogat vagy összefoglalót készít, de csak a te jóváhagyásod után küld ki bármit.</p>
+<p style="margin: 0; font-size: 17px"><b style="color: #17271F">Amit kapsz:</b> egy működő AI-asszisztenst, kipróbálva és mérve.</p>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 20px; padding-top: 12px; border-top: 1px solid #EEF1EF; font-size: 16px; color: #374151"><span><b>Idő:</b> 2-3 hét</span><span><b>Tőled:</b> heti 15 perc</span></div>
+</article>
+
+<article class="nk-card" style="background: #FFFFFF; border: 1px solid #E2E8E4; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">Folyamat-automatizálás</h3>
+<p style="margin: 0; font-size: 17px; color: #4B5563">Számlák iktatása, jóváhagyások, munkaidő-rögzítés, riportok kiküldése: rendszer végzi, nem ember.</p>
+<p style="margin: 0; font-size: 17px"><b style="color: #17271F">Amit kapsz:</b> működő automatizációt vagy belső appot, leírással.</p>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 20px; padding-top: 12px; border-top: 1px solid #EEF1EF; font-size: 16px; color: #374151"><span><b>Idő:</b> 3-4 hét</span><span><b>Tőled:</b> 2 óra összesen</span></div>
+</article>
+
+<article class="nk-card" style="background: #FFFFFF; border: 1px solid #E2E8E4; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">AI-adatbiztonsági audit</h3>
+<p style="margin: 0; font-size: 17px; color: #4B5563">Kíváncsi vagy, kerülnek-e céges adatok illetéktelen helyre a kollégák AI-használata miatt? Megnézzük.</p>
+<p style="margin: 0; font-size: 17px"><b style="color: #17271F">Amit kapsz:</b> képet arról, ki milyen AI-eszközt használ és milyen adattal, a kockázatok listáját és egy AI-használati szabályzatot.</p>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 20px; padding-top: 12px; border-top: 1px solid #EEF1EF; font-size: 16px; color: #374151"><span><b>Idő:</b> kb. 1 hét</span><span><b>Tőled:</b> 1 óra</span></div>
+</article>
+</div>
+<p style="margin: 0; font-size: 16px; color: #6B7280">Eszközök: Microsoft 365, Copilot, Power Automate, Power Apps · Google Workspace, Gemini · Make, n8n</p>
+</section>
+
+<!-- GROUP 2: CRM -->
+<section id="crm" style="max-width: 1160px; margin: 0 auto; padding: 72px 24px 24px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; gap: 20px; align-items: flex-start; max-width: 760px">
+<span style="flex: 0 0 60px; height: 60px; border-radius: 18px; background: #17271F; display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D9BC7E" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18 14.8c1.9.7 3.1 2.4 3.5 5.2"></path></svg></span>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 42px); line-height: 1.15; font-weight: 800; letter-spacing: -0.6px">CRM-szolgáltatások</h2>
+<p style="margin: 0; color: #4B5563">Minden ügyfél, ajánlat és következő lépés egy helyen, és a csapat tényleg használja.</p>
+</div>
+</div>
+<div class="nk-row nk-row2">
+
+<article class="nk-card" style="background: #FFFFFF; border: 1px solid #E2E8E4; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">Felmérés és CRM-választás</h3>
+<p style="margin: 0; font-size: 17px; color: #4B5563">Egy napot nálatok töltünk, leírjuk a folyamatokat és a felelősségeket, és ez alapján választunk rendszert.</p>
+<p style="margin: 0; font-size: 17px"><b style="color: #17271F">Amit kapsz:</b> folyamatleírást, felelősségi mátrixot és CRM-javaslatot.</p>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 20px; padding-top: 12px; border-top: 1px solid #EEF1EF; font-size: 16px; color: #374151"><span><b>Idő:</b> 1-2 hét</span><span><b>Tőled:</b> fél nap</span></div>
+</article>
+
+<article class="nk-card" style="background: #FFFFFF; border: 1px solid #E2E8E4; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">CRM-bevezetés és adatátvitel</h3>
+<p style="margin: 0; font-size: 17px; color: #4B5563">Beállítjuk a rendszert, átvisszük az adatokat Excelből vagy a régi rendszerből.</p>
+<p style="margin: 0; font-size: 17px"><b style="color: #17271F">Amit kapsz:</b> használatra kész CRM-et a saját adataiddal.</p>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 20px; padding-top: 12px; border-top: 1px solid #EEF1EF; font-size: 16px; color: #374151"><span><b>Idő:</b> 3-4 hét</span><span><b>Tőled:</b> heti 15 perc</span></div>
+</article>
+</div>
+<p style="margin: 0; font-size: 16px; color: #6B7280">Rendszerek: HubSpot, MiniCRM, Pipedrive, Microsoft Dynamics, és ami nálatok már működik.</p>
+</section>
+
+<!-- GROUP 3: SALES SUPPORT -->
+<section id="ertekesites" style="max-width: 1160px; margin: 0 auto; padding: 72px 24px 24px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; gap: 20px; align-items: flex-start; max-width: 760px">
+<span style="flex: 0 0 60px; height: 60px; border-radius: 18px; background: #17271F; display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D9BC7E" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"></path><path d="M14 7h7v7"></path></svg></span>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 42px); line-height: 1.15; font-weight: 800; letter-spacing: -0.6px">Értékesítést segítő szolgáltatások</h2>
+<p style="margin: 0; color: #4B5563">Több idő jut az ügyfelekre, kevesebb a papírmunkára, és látod, mi hozza a bevételt.</p>
+</div>
+</div>
+<div class="nk-row">
+
+<article class="nk-card" style="background: #FFFFFF; border: 1px solid #E2E8E4; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">Érdeklődőkezelés a weboldalról</h3>
+<p style="margin: 0; font-size: 17px; color: #4B5563">A weboldalról és a hirdetésekből érkező érdeklődők automatikusan a CRM-be kerülnek, felelőssel.</p>
+<p style="margin: 0; font-size: 17px"><b style="color: #17271F">Amit kapsz:</b> bekötött űrlapokat és azonnali értesítést.</p>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 20px; padding-top: 12px; border-top: 1px solid #EEF1EF; font-size: 16px; color: #374151"><span><b>Idő:</b> kb. 1 hét</span><span><b>Tőled:</b> 30 perc</span></div>
+</article>
+
+<article class="nk-card" style="background: #FFFFFF; border: 1px solid #E2E8E4; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">Gyorsabb ajánlatkészítés</h3>
+<p style="margin: 0; font-size: 17px; color: #4B5563">Sablonok és AI-tervezet: az ajánlat percek alatt elkészül, te csak átnézed.</p>
+<p style="margin: 0; font-size: 17px"><b style="color: #17271F">Amit kapsz:</b> ajánlatsablonokat és egy kipróbált munkafolyamatot.</p>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 20px; padding-top: 12px; border-top: 1px solid #EEF1EF; font-size: 16px; color: #374151"><span><b>Idő:</b> 2 hét</span><span><b>Tőled:</b> 1 óra</span></div>
+</article>
+
+<article class="nk-card" style="background: #FFFFFF; border: 1px solid #E2E8E4; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">Értékesítési és pénzügyi riport</h3>
+<p style="margin: 0; font-size: 17px; color: #4B5563">Egy oldalon a bevétel, a várható üzletek, a befizetések és a költségek, automatikusan frissítve.</p>
+<p style="margin: 0; font-size: 17px"><b style="color: #17271F">Amit kapsz:</b> egyoldalas vezetői kimutatást vagy havi riportot e-mailben.</p>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 20px; padding-top: 12px; border-top: 1px solid #EEF1EF; font-size: 16px; color: #374151"><span><b>Idő:</b> 2 hét</span><span><b>Tőled:</b> 1 óra</span></div>
+</article>
+
+<article class="nk-card" style="background: #FFFFFF; border: 1px solid #E2E8E4; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">Egyedi értékesítést segítő alkalmazás</h3>
+<p style="margin: 0; font-size: 17px; color: #4B5563">A Te értékesítési folyamatodra szabott alkalmazás, például ajánlatkalkulátor, terepi felmérő vagy partnerportál.</p>
+<p style="margin: 0; font-size: 17px"><b style="color: #17271F">Amit kapsz:</b> működő alkalmazást, amit a csapat asztali gépen és mobilon is használ.</p>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 20px; padding-top: 12px; border-top: 1px solid #EEF1EF; font-size: 16px; color: #374151"><span><b>Idő:</b> 3-4 hét</span><span><b>Tőled:</b> heti 15 perc</span></div>
+</article>
+
+<article class="nk-card" style="background: #FFFFFF; border: 1px solid #E2E8E4; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">Hírlevél és kampányautomatizáció</h3>
+<p style="margin: 0; font-size: 17px; color: #4B5563">A régi és az új ügyfelek a megfelelő időben kapják a megfelelő üzenetet.</p>
+<p style="margin: 0; font-size: 17px"><b style="color: #17271F">Amit kapsz:</b> beállított kampányokat és eredményriportot.</p>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 20px; padding-top: 12px; border-top: 1px solid #EEF1EF; font-size: 16px; color: #374151"><span><b>Idő:</b> 2-3 hét</span><span><b>Tőled:</b> 1 óra</span></div>
+</article>
+</div>
+</section>
+
+<!-- EXPERTISE -->
+<section style="margin-top: 72px; background: #17271F; color: #FFFFFF">
+<div style="max-width: 1160px; margin: 0 auto; padding: 88px 24px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 700px">
+<p style="margin: 0; font-size: 16px; font-weight: 600; color: #D9BC7E">Miért bízhatsz bennünk</p>
+<h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 42px); line-height: 1.15; font-weight: 800; letter-spacing: -0.6px">Nem eszközt árulunk.<br>Működő megoldásokat adunk át.</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px">
+<div style="background: #1E3428; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 700">Üzleti háttér</h3>
+<p style="margin: 0; font-size: 17px; color: #C9D7CE">Pénzügy, vállalatirányítás, értékesítés és technológia: értjük, mit kell látnia egy cégvezetőnek.</p>
+</div>
+<div style="background: #1E3428; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 700">Valódi eredmények</h3>
+<p style="margin: 0; font-size: 17px; color: #C9D7CE">Munkaidő-app 3 hét alatt, havi befizetési riport 2 hét alatt, CRM-bevezetés egy napos felmérésből.</p>
+<a href="/" style="margin-top: 4px; color: #D9BC7E; font-weight: 600; font-size: 16px">Esettanulmányok →</a>
+</div>
+<div style="background: #1E3428; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 700">Mindig naprakészen</h3>
+<p style="margin: 0; font-size: 17px; color: #C9D7CE">Minden héten elemezzük az AI- és automatizációs újdonságokat, és megírjuk, mit jelentenek egy KKV-nak.</p>
+<a href="/blog" style="margin-top: 4px; color: #D9BC7E; font-weight: 600; font-size: 16px">Heti AI-trendek →</a>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: center; padding-top: 28px; border-top: 1px solid #2C4537">
+<div style="display: flex; gap: 12px">
+<img src="/img/2e7a228e786f5e7775e0950fff36f6f8.webp" alt="Kárpáti Lili" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%">
+<img src="/img/5f0151bfa5d6177e4ee0f69681116c25.webp" alt="Nagy Gyula" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%">
+</div>
+<p style="margin: 0; flex: 1 1 360px; font-size: 18px; color: #E4ECE7">Közvetlenül velünk dolgozol: <b>Kárpáti Lilivel és Nagy Gyulával</b>, az NK Studio alapítóival.</p>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section style="max-width: 1160px; margin: 0 auto; padding: 88px 24px">
+<div style="background: #FFFFFF; border: 2px solid #C9A24A; border-radius: 26px; padding: 40px; display: flex; flex-wrap: wrap; gap: 28px; align-items: center; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 620px">
+<h2 style="margin: 0; font-size: clamp(28px, 3.2vw, 38px); line-height: 1.15; font-weight: 800; letter-spacing: -0.5px">Nem tudod, melyik kell? Nem is kell tudnod.</h2>
+<p style="margin: 0; color: #4B5563">45 perc beszélgetés után megmondjuk, mivel érdemes kezdeni, és mennyibe kerül.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<a class="nk-btn" href="/" style="display: inline-flex; justify-content: center; align-items: center; min-height: 56px; padding: 0 28px; border-radius: 999px; background: #C9A24A; color: #17271F; font-size: 17px; font-weight: 700; text-decoration: none">Ingyenes konzultációt kérek</a>
+<a href="/ai-felmeres" style="text-align: center; font-size: 16px; font-weight: 600">vagy előbb az 5 perces AI-felmérés →</a>
+</div>
+</div>
+</section>
+
+<footer style="background: #0F1C15; color: #A9BDB0; font-size: 15px">
+<div style="max-width: 1160px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px 32px">
+<span>© NK Studio · [Cégnév, székhely, adószám]</span>
+<div style="display: flex; flex-wrap: wrap; gap: 22px"><a href="#" style="color: #A9BDB0">Adatkezelés</a><a href="#" style="color: #A9BDB0">Impresszum</a><a href="#" style="color: #A9BDB0">LinkedIn</a></div>
+</div>
+</footer>
+
+</div>
+</body>
+</html>
