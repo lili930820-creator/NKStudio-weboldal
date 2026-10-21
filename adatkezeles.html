@@ -4,22 +4,36 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Adatkezelési tájékoztató | NK Studio</title>
-<meta name="description" content="Az NK Studio (Demcsik Balázs Dániel e.v.) adatkezelési tájékoztatója.">
+<meta name="description" content="Az NK Studio adatkezelési tájékoztatója: milyen adatot, milyen célból és meddig kezelünk, és milyen jogaid vannak.">
+<link rel="canonical" href="https://www.nkstudio.hu/adatkezeles">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NK Studio">
+<meta property="og:locale" content="hu_HU">
+<meta property="og:title" content="Adatkezelési tájékoztató | NK Studio">
+<meta property="og:description" content="Az NK Studio adatkezelési tájékoztatója: milyen adatot, milyen célból és meddig kezelünk, és milyen jogaid vannak.">
+<meta property="og:url" content="https://www.nkstudio.hu/adatkezeles">
+<meta property="og:image" content="https://www.nkstudio.hu/img/og-nkstudio.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/img/nk-logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/inter-400.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/inter-900.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="/fonts/inter.css">
+<style>footer a{display:inline-flex;align-items:center;min-height:32px}</style>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#F8FAF8;color:#1F2937;font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.7}
 h1,h2,h3{color:#111827;line-height:1.2;text-wrap:balance}
-p,li,td{text-wrap:pretty}
+p,li,td,blockquote{text-wrap:pretty}
 a{color:#2F5D46}
 header{position:sticky;top:0;z-index:10;background:rgba(15,28,21,.96);border-bottom:1px solid rgba(255,255,255,.08)}
 header .in{max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 header img{height:58px;width:auto;display:block}
-header nav{display:flex;gap:28px;font-size:15px;font-weight:600}
+header nav{display:flex;gap:28px;font-size:15px;font-weight:600;align-items:center}
 header nav a{color:#fff;text-decoration:none}
-@media (max-width:700px){header nav{display:none} header img{height:48px}}
+header .cta{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;background:#C9A24A;color:#17271F;font-size:15px;font-weight:800;text-decoration:none}
+@media (max-width:760px){header nav .nl{display:none} header img{height:48px}}
 main{max-width:860px;margin:0 auto;padding:56px 24px 80px}
 main h1{font-size:clamp(32px,4.4vw,46px);font-weight:900;letter-spacing:-1px;margin:0 0 20px}
 main h2{font-size:24px;font-weight:800;margin:40px 0 12px}
@@ -27,9 +41,21 @@ main h3{font-size:19px;font-weight:800;margin:28px 0 10px}
 table{width:100%;border-collapse:collapse;margin:12px 0 20px;font-size:16px;background:#fff;border:1px solid #E2E8E4;border-radius:14px;overflow:hidden}
 th,td{text-align:left;vertical-align:top;padding:10px 14px;border-bottom:1px solid #EEF1EF}
 th{background:#17271F;color:#fff;font-weight:700}
-thead:has(th:empty){display:none}
 td:first-child{font-weight:700;color:#111827;width:32%}
-@media (max-width:600px){td:first-child{width:auto}}
+@media (max-width:600px){td:first-child{width:auto} table{font-size:14px;table-layout:fixed} th,td{padding:8px 10px;overflow-wrap:anywhere;hyphens:auto}}
+.kick{font-size:13px;font-weight:800;letter-spacing:2px;color:#8A6A2C;margin:0 0 10px}
+.stat{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin:0 0 22px}
+.stat b{font-size:48px;font-weight:900;color:#2F5D46;letter-spacing:-2px;line-height:1}
+.stat span{color:#4B5563;font-size:15px}
+blockquote{margin:24px 0;padding:18px 22px;border-left:4px solid #C9A24A;background:#fff;border-radius:0 16px 16px 0;font-size:20px;font-weight:700;line-height:1.4;color:#111827}
+blockquote small{display:block;margin-top:8px;font-size:14px;font-weight:600;color:#4B5563}
+.box{background:#E6EFE9;border-radius:18px;padding:20px 24px;margin:20px 0}
+.box h2{margin-top:0;font-size:20px}
+.cta-box{background:#17271F;color:#DCE6DF;border-radius:24px;padding:28px;margin-top:40px}
+.cta-box h2{color:#fff;margin-top:0}
+.cta-box a.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 24px;border-radius:999px;background:#C9A24A;color:#17271F;font-weight:900;text-decoration:none;margin:6px 10px 0 0}
+.cta-box a.sec{color:#D9BC7E;font-weight:700}
+.crumb{font-size:14px;margin:0 0 18px}.crumb a{color:#4B5563}
 footer{background:#0F1C15;color:#A9BDB0;font-size:14px}
 footer .in{max-width:1240px;margin:0 auto;padding:32px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px}
 footer a{color:#A9BDB0}
@@ -38,8 +64,8 @@ footer .links{display:flex;gap:22px;flex-wrap:wrap}
 </head>
 <body>
 <header><div class="in">
-<a href="/" aria-label="NK Studio főoldal"><img src="/img/nk-logo.png" alt="NK Studio"></a>
-<nav aria-label="Fő navigáció"><a href="/">Főoldal</a><a href="/szolgaltatasok">Szolgáltatások</a><a href="/blog">Blog</a></nav>
+<a href="/" aria-label="NK Studio főoldal"><img src="/img/nk-logo.png" alt="NK Studio" width="70" height="58"></a>
+<nav aria-label="Fő navigáció"><a class="nl" href="/">Főoldal</a><a class="nl" href="/szolgaltatasok">Szolgáltatások</a><a class="nl" href="/blog">Blog</a><a class="cta" href="https://meetings-eu1.hubspot.com/lili-karpati" target="_blank" rel="noopener">Időpontfoglalás</a></nav>
 </div></header>
 <main>
 <h1>Adatkezelési tájékoztató</h1>
@@ -84,8 +110,8 @@ footer .links{display:flex;gap:22px;flex-wrap:wrap}
 </tbody>
 </table>
 <h2>2. Az adatkezelések</h2>
-<h3>2/A. Kapcsolatfelvétel a weboldalon</h3>
-<p>A weboldal űrlapján vagy időpontfoglalóján a látogató kapcsolatba léphet velünk, időpontot, ajánlatot vagy tájékoztatást kérhet. Az űrlapon megadott adatokat a HubSpot ügyfélkapcsolat-kezelő (CRM) rendszerben rögzítjük és kezeljük.</p>
+<h3>2/A. Időpontfoglalás és kapcsolatfelvétel</h3>
+<p>A weboldal időpontfoglalóján (HubSpot) a látogató 45 perces online beszélgetésre foglalhat időpontot, e-mailben vagy telefonon pedig ajánlatot vagy tájékoztatást kérhet. A foglaláskor megadott adatokat a HubSpot ügyfélkapcsolat-kezelő (CRM) rendszerben rögzítjük és kezeljük.</p>
 <table>
 
 <tbody>
@@ -95,11 +121,11 @@ footer .links{display:flex;gap:22px;flex-wrap:wrap}
 </tr>
 <tr>
 <td>Jogalap</td>
-<td>Az érintett hozzájárulása – GDPR 6. cikk (1) bekezdés a) pont. A hozzájárulást az űrlap elküldése előtt, külön jelölőnégyzet bepipálásával adja meg.</td>
+<td>Az érintett kérésére, a szerződés megkötését megelőzően tett lépések: GDPR 6. cikk (1) bekezdés b) pont. Az időpontfoglaláshoz és a megkeresés megválaszolásához külön hozzájárulást nem kérünk.</td>
 </tr>
 <tr>
 <td>Kezelt adatok</td>
-<td>Név, e-mail cím, telefonszám, cégnév</td>
+<td>Név, e-mail cím; ha megadja: telefonszám, cégnév és a megbeszélés témája</td>
 </tr>
 <tr>
 <td>Adatfeldolgozó</td>
@@ -107,15 +133,15 @@ footer .links{display:flex;gap:22px;flex-wrap:wrap}
 </tr>
 <tr>
 <td>Megőrzési idő</td>
-<td>A hozzájárulás visszavonásáig, de legfeljebb az utolsó kapcsolatfelvételtől számított 2 évig</td>
+<td>Az utolsó kapcsolatfelvételtől számított 2 évig, vagy amíg az érintett nem kéri a törlést</td>
 </tr>
 <tr>
 <td>Érintetti jogok</td>
-<td>Hozzáférés, helyesbítés, törlés, korlátozás, adathordozhatóság, a hozzájárulás visszavonása</td>
+<td>Hozzáférés, helyesbítés, törlés, korlátozás, adathordozhatóság</td>
 </tr>
 </tbody>
 </table>
-<p>A hozzájárulás bármikor, indoklás nélkül visszavonható az 1. pontban megadott elérhetőségeken. A visszavonás nem érinti a korábbi adatkezelés jogszerűségét, a visszavonást követően az adatokat töröljük.</p>
+<p>Adatai törlését bármikor kérheti az 1. pontban megadott elérhetőségeken; ilyenkor az adatokat töröljük, kivéve, ha jogszabály a megőrzésüket írja elő.</p>
 <p>Az adatok megadása önkéntes. Név és e-mail cím nélkül azonban nem tudunk válaszolni a megkeresésre.</p>
 <h3>2/B. Önfelmérő térkép és AI-felmérés</h3>
 <p><strong>Önfelmérő térkép.</strong> A kitöltés után a megadott adatok és válaszok alapján személyre szabott PDF-riportot készítünk, és átnézés után e-mailben elküldjük. A riport szövegének előkészítéséhez mesterséges intelligenciát (OpenAI) használunk. A pontszámítás automatikus, de joghatással nem jár, és a riportot elküldés előtt munkatársunk ellenőrzi.</p>
@@ -184,8 +210,8 @@ footer .links{display:flex;gap:22px;flex-wrap:wrap}
 <p>A szerződéshez szükséges adatok megadása a szerződés megkötésének feltétele, ezek hiányában a szolgáltatást nem tudjuk nyújtani.</p>
 <p>A kiállított számlákat és a rajtuk szereplő adatokat (név, cím, adószám) jogi kötelezettség alapján kezeljük – GDPR 6. cikk (1) bekezdés c) pont, a számvitelről szóló 2000. évi C. törvény 169. §-a –, és 8 évig őrizzük. Ezekre a törlési jog a megőrzési idő végéig nem vonatkozik.</p>
 <h3>2/D. Sütik (cookie-k)</h3>
-<p>A weboldal kizárólag a működéséhez feltétlenül szükséges sütiket használja. Ezek a munkamenet végéig tárolódnak a látogató eszközén, nem szolgálnak követésre, elemzésre vagy hirdetésre, és nem tárolnak személyes adatot vagy IP-címet. Mivel a működéshez elengedhetetlenek, használatukhoz nem kell hozzájárulás (Eht. 155. § (4) bekezdés).</p>
-<p>A sütiket a böngésző beállításaiban le lehet tiltani, ez azonban a weboldal egyes funkcióinak (például az űrlap) működését akadályozhatja. Ha a jövőben statisztikai vagy marketing sütiket vezetünk be, azokat csak előzetes hozzájárulással használjuk, és ezt a tájékoztatót frissítjük.</p>
+<p>A weboldal nem használ sütiket, és a látogató böngészőjében sem tárol adatot. Nem futtatunk látogatottság-mérő, követő vagy hirdetési kódot, és a betűtípusokat is saját tárhelyről töltjük be, ezért az oldal megnyitásakor nem kerül adat harmadik félhez. A HubSpot időpontfoglaló külön oldalon nyílik meg; ott a HubSpot saját süti- és adatvédelmi szabályai érvényesek. A tárhelyszolgáltató (Vercel) a weboldal kiszolgálásához és biztonságához technikai naplót vezet (például IP-cím, időpont, megnyitott oldal).</p>
+<p>Ha a jövőben statisztikai vagy marketing sütiket vezetünk be, azokat csak előzetes hozzájárulással használjuk, és ezt a tájékoztatót frissítjük. Az utolsó ellenőrzés dátuma: 2026. október 21.</p>
 <h2>3. Adatfeldolgozók</h2>
 <p>Az adatfeldolgozók kizárólag az Adatkezelő utasítása szerint, szerződés alapján kezelhetik az adatokat, önálló döntést nem hozhatnak, és az adatokat harmadik félnek nem adhatják át.</p>
 <table>
@@ -261,6 +287,6 @@ footer .links{display:flex;gap:22px;flex-wrap:wrap}
 <p>Az Adatkezelő fenntartja a jogot, hogy a tájékoztatót módosítsa; a mindenkor hatályos változat a weboldalon érhető el.</p>
 <p>Hatályos: 2026. október 20.</p>
 </main>
-<footer><div class="in"><span>© 2026 NK Studio · Demcsik Balázs Dániel e.v.</span><div class="links"><a href="/adatkezeles">Adatkezelés</a><a href="/impresszum">Impresszum</a><a href="https://www.linkedin.com/company/107883841/" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
+<footer><div class="in"><span>© 2026 NK Studio</span><div class="links"><a href="/adatkezeles">Adatkezelés</a><a href="/impresszum">Impresszum</a><a href="https://www.linkedin.com/company/107883841/" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
 </body>
 </html>
