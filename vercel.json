@@ -11,6 +11,11 @@
       "source": "/onfelmeres",
       "destination": "/cegmukodes-felmeres",
       "permanent": true
+    },
+    {
+      "source": "/blog/minden-rajtam-mulik",
+      "destination": "/blog",
+      "permanent": true
     }
   ],
   "headers": [
