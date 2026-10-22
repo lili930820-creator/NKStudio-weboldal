@@ -6,6 +6,11 @@
       "source": "/index",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/onfelmeres",
+      "destination": "/cegmukodes-felmeres",
+      "permanent": true
     }
   ],
   "headers": [
