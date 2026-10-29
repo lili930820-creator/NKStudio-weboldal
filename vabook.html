@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VABook: alkalmazás virtuális asszisztenseknek | NK Studio</title>
+<title>VA book: alkalmazás virtuális asszisztenseknek | NK Studio</title>
 <meta name="description" content="Munkaidőmérés, ügyfélkezelés, teljesítésigazolás, árazási segédlet és cashflow egy helyen, virtuális asszisztenseknek. Indulás: november 9. Alapítói ár: bruttó 2 990 Ft/hó a november 9. és december 8. között előfizetőknek.">
 <link rel="canonical" href="https://www.nkstudio.hu/vabook">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NK Studio">
 <meta property="og:locale" content="hu_HU">
-<meta property="og:title" content="VABook: a VA-vállalkozásod egy helyen">
+<meta property="og:title" content="VA book: a VA-vállalkozásod egy helyen">
 <meta property="og:description" content="Munkaidőmérés, ügyfélkezelés, teljesítésigazolás, árazás és cashflow egy alkalmazásban. Alapítói ár: 2 990 Ft/hó, amíg előfizető maradsz.">
 <meta property="og:url" content="https://www.nkstudio.hu/vabook">
 <meta property="og:image" content="https://www.nkstudio.hu/img/og-nkstudio.png">
@@ -21,11 +21,12 @@
 <link rel="preload" href="/fonts/inter-900.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="/fonts/inter.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"VABook","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"hu","description":"Munkaidőmérés, ügyfél- és projektkezelés, teljesítésigazolások, árazási segédlet és cashflow-áttekintés virtuális asszisztenseknek.","offers":{"@type":"Offer","price":"2990","priceCurrency":"HUF","description":"Alapítói ár (bruttó) a 2026. november 9. és december 8. között előfizetőknek"},"publisher":{"@type":"Organization","name":"NK Studio","url":"https://www.nkstudio.hu"}}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"VA book","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"hu","description":"Munkaidőmérés, ügyfél- és projektkezelés, teljesítésigazolások, árazási segédlet és cashflow-áttekintés virtuális asszisztenseknek.","offers":{"@type":"Offer","price":"2990","priceCurrency":"HUF","description":"Alapítói ár (bruttó) a 2026. november 9. és december 8. között előfizetőknek"},"publisher":{"@type":"Organization","name":"NK Studio","url":"https://www.nkstudio.hu"}}
 </script>
 <style>
 :root{--ej:#0F1A15;--mely:#1F3A2D;--logo:#3E7A55;--arany:#C9A55C;--arany-s:#8A6A2C;--papir:#F3EFE6;--feher:#FBFAF6;--szoveg:#1F2937;--halvany:#4B5563;--vonal:#E4DFD3}
 *{box-sizing:border-box}
+.nw{white-space:nowrap}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--papir);color:var(--szoveg);font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.65;hyphens:manual}
 h1,h2,h3{line-height:1.15;text-wrap:balance;margin:0}
@@ -47,58 +48,38 @@ header .cta{display:inline-flex;align-items:center;min-height:44px;padding:0 20p
 .btn:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--arany);outline-offset:3px}
 
 /* HERO */
-.hero{background:radial-gradient(120% 90% at 85% 0%,#24473A 0%,var(--mely) 35%,var(--ej) 100%);color:#DCE6DF;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-top:72px;padding-bottom:84px}
-.mark{display:inline-flex;align-items:center;gap:10px;margin-bottom:26px}
-.mark span{font-size:28px;font-weight:800;color:#fff;letter-spacing:-.5px}
-.hero .kick{color:var(--arany)}
-.hero h1{font-size:clamp(36px,5vw,62px);font-weight:900;letter-spacing:-2px;color:#fff;margin-bottom:22px}
-.hero h1 em{font-style:normal;color:var(--arany)}
-.hero .lead{font-size:20px;line-height:1.55;max-width:560px;margin:0 0 28px;color:#C9D6CD}
-.hero .lead b{color:#fff}
-.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;border:1px solid rgba(201,165,92,.55);font-size:15px;color:#fff;margin-bottom:30px}
-.pill b{background:var(--arany);color:var(--ej);border-radius:999px;padding:4px 12px;font-size:13px;letter-spacing:1px}
+.hero{padding:64px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
+.logo{display:block;width:210px;height:auto;margin-bottom:30px}
+.hero h1{font-size:clamp(38px,4.6vw,58px);font-weight:900;letter-spacing:-1.6px;color:var(--ej);margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--logo)}
+.hero .lead{font-size:19px;line-height:1.6;max-width:520px;margin:0 0 26px;color:var(--halvany)}
+.pill{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 16px 8px 8px;border-radius:999px;background:var(--feher);border:1px solid var(--vonal);font-size:15px;color:var(--ej);margin-bottom:28px}
+.pill b{background:var(--ej);color:var(--arany);border-radius:999px;padding:4px 12px;font-size:12px;letter-spacing:1.2px}
 .actions{display:flex;gap:12px;flex-wrap:wrap}
-.date-note{margin:20px 0 0;font-size:14px;color:#9FB3A6}
+.btn.line{background:transparent;color:var(--ej);border:1.5px solid var(--ej)}
+.date-note{margin:18px 0 0;font-size:14px;color:var(--halvany)}
+.stage{background:radial-gradient(120% 120% at 0% 0%,#2C5443 0%,var(--mely) 45%,var(--ej) 100%);border-radius:32px;padding:34px;box-shadow:0 30px 70px rgba(15,26,21,.22)}
+.shot{margin:0;border-radius:18px;overflow:hidden;background:#EEEAE0;border:1px solid rgba(255,255,255,.18);aspect-ratio:16/10;display:grid;place-items:center;text-align:center;color:#7C847E;font-size:14px;font-weight:600;padding:16px}
+.shot img{width:100%;height:100%;object-fit:cover;display:block}
+.stage .shot{box-shadow:0 18px 40px rgba(0,0,0,.35)}
 
-/* App-illusztráció */
-.app{background:var(--feher);border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.35);color:var(--szoveg);overflow:hidden;border:1px solid rgba(255,255,255,.2)}
-.app .bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#EEEAE0;border-bottom:1px solid var(--vonal)}
-.app .bar i{width:10px;height:10px;border-radius:50%;background:#D6CFBF}
-.app .bar span{margin-left:8px;font-size:12px;font-weight:700;color:var(--halvany);letter-spacing:.5px}
-.app .body{padding:22px}
-.app .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
-.app h4{margin:0;font-size:15px;color:var(--ej)}
-.app .tot{font-size:28px;font-weight:900;color:var(--mely);letter-spacing:-1px}
-.app .tot small{font-size:13px;font-weight:600;color:var(--halvany);letter-spacing:0}
-.bars{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:end;height:120px;margin:4px 0 8px}
-.bars div{border-radius:8px 8px 3px 3px;background:linear-gradient(var(--logo),var(--mely))}
-.bars div.g{background:linear-gradient(#D8BC7F,var(--arany))}
-.days{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;font-size:11px;font-weight:700;color:var(--halvany);text-align:center;margin-bottom:18px}
-.client{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--vonal);font-size:14px}
-.client .dot{width:10px;height:10px;border-radius:50%;background:var(--logo);flex:none}
-.client .dot.g{background:var(--arany)}
-.client b{margin-left:auto;font-variant-numeric:tabular-nums}
-.tig{margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--ej);color:#fff;border-radius:14px;padding:12px 14px;font-size:13px;font-weight:700}
-.tig span{color:var(--arany)}
-.illu-note{font-size:12px;color:#8FA597;margin:10px 4px 0;text-align:right}
-
-/* Probléma */
-.pain{padding:84px 0 40px}
-.pain h2{font-size:clamp(30px,3.8vw,44px);font-weight:900;letter-spacing:-1.2px;color:var(--ej);max-width:820px}
-.pain p{max-width:720px;font-size:19px;color:var(--halvany);margin:18px 0 0}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.chips span{padding:9px 16px;border-radius:999px;background:var(--feher);border:1px solid var(--vonal);font-size:15px;font-weight:600;color:var(--mely)}
-.chips span s{color:#9AA39D}
+/* Bemutatkozás */
+.about{padding:20px 0 70px}
+.about .card{background:var(--feher);border:1px solid var(--vonal);border-radius:28px;padding:34px;display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center}
+.about .shot{aspect-ratio:4/3;background:#E9E4D8;border:0}
+.about h2{font-size:clamp(26px,3vw,36px);font-weight:900;letter-spacing:-.8px;color:var(--ej);margin-bottom:14px}
+.about p{margin:0 0 12px;color:var(--halvany);font-size:18px}
 
 /* Funkciók */
-.feat{padding:40px 0 90px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
-.card{background:var(--feher);border:1px solid var(--vonal);border-radius:22px;padding:26px}
-.card .ic{width:46px;height:46px;border-radius:14px;background:var(--ej);display:grid;place-items:center;margin-bottom:18px}
-.card h3{font-size:20px;font-weight:800;color:var(--ej);margin-bottom:8px}
-.card p{margin:0;color:var(--halvany);font-size:16px}
+.feat{padding:20px 0 90px}
 .sec-h{font-size:clamp(28px,3.4vw,40px);font-weight:900;letter-spacing:-1px;color:var(--ej)}
+.rows{display:grid;gap:22px;margin-top:34px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;background:var(--feher);border:1px solid var(--vonal);border-radius:28px;padding:30px}
+.row:nth-child(even) .txt{order:2}
+.step{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--ej);color:var(--arany);font-weight:900;font-size:16px;margin-bottom:16px}
+.row h3{font-size:clamp(22px,2.4vw,28px);font-weight:900;letter-spacing:-.5px;color:var(--ej);margin-bottom:10px}
+.row p{margin:0;color:var(--halvany);font-size:17px;max-width:440px}
 
 /* Ajánlat */
 .offer{background:var(--ej);color:#C9D6CD;padding:90px 0}
@@ -169,21 +150,22 @@ footer a{color:#A9BDB0;display:inline-flex;align-items:center;min-height:32px}
 footer .links{display:flex;gap:22px;flex-wrap:wrap}
 
 @media (max-width:980px){
- .hero .wrap,.reg .wrap{grid-template-columns:1fr;gap:44px}
- .grid{grid-template-columns:1fr 1fr}
+ .hero .wrap,.reg .wrap,.about .card,.row{grid-template-columns:1fr;gap:28px}
+ .row:nth-child(even) .txt{order:0}
  .prices{grid-template-columns:1fr}
  .rules{grid-template-columns:1fr}
  .conf .box{grid-template-columns:1fr;gap:24px;padding:34px}
 }
 @media (max-width:620px){
  .wrap{padding:0 16px}
- .hero .wrap{padding-top:48px;padding-bottom:60px}
- .hero h1{letter-spacing:-1.2px}
+ .hero{padding:40px 0 56px}
+ .hero h1{letter-spacing:-1px}
  .hero .lead{font-size:18px}
- .grid{grid-template-columns:1fr}
  .actions .btn{width:100%}
+ .pill{border-radius:18px;padding:12px 16px;flex-direction:column;align-items:flex-start;gap:8px}
+ .stage{padding:16px;border-radius:24px}
+ .row,.about .card{padding:22px}
  .form{padding:24px 18px}
- .pain{padding-top:60px}
  .offer,.reg{padding:64px 0}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -199,88 +181,71 @@ footer .links{display:flex;gap:22px;flex-wrap:wrap}
 <section class="hero">
 <div class="wrap">
 <div>
-<div class="mark" aria-label="VABook">
-<svg width="44" height="34" viewBox="0 0 44 34" aria-hidden="true"><path d="M3 15l8 9L24 5" fill="none" stroke="#3E7A55" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M26 29L33.5 7 41 29" fill="none" stroke="#F3EFE6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="33.5" cy="23.5" r="2.6" fill="#C9A55C"/></svg>
-<span>VABook</span>
-</div>
-<p class="kick">Virtuális asszisztenseknek, az NK Studiótól</p>
-<h1>A VA&#8209;vállalkozásod. <em>Egy helyen.</em></h1>
-<p class="lead">Munkaidőmérés, ügyfélkezelés, teljesítésigazolás, árazás és cashflow egyetlen magyar nyelvű alkalmazásban. <b>Több ügyfél, kevesebb adminisztráció.</b></p>
-<div class="pill"><b>ALAPÍTÓI ÁR</b>bruttó 2 990 Ft/hó, amíg előfizető maradsz</div>
+<svg class="logo" viewBox="0 0 500 120" role="img" aria-label="VA book"><path d="M16 62 L50 100 L100 18" fill="none" stroke="#2F5D45" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><path d="M112 100 L156 22 L200 100" fill="none" stroke="#0F1A15" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><circle cx="156" cy="80" r="11" fill="#C9A55C"/><text x="226" y="100" font-family="Inter,system-ui,sans-serif" font-size="118" font-weight="600" letter-spacing="-6" fill="#0F1A15">book</text></svg>
+<p class="kick">Virtuális asszisztenseknek</p>
+<h1>A&nbsp;<span class="nw">VA-vállalkozásod</span> <em>egy&nbsp;helyen.</em></h1>
+<p class="lead">Munkaidő, ügyfelek, teljesítésigazolás, árazás és&nbsp;cashflow egyetlen magyar alkalmazásban. Hogy&nbsp;a&nbsp;hónap vége ne&nbsp;a&nbsp;szabadidődből menjen&nbsp;el.</p>
+<div class="pill"><b>ALAPÍTÓI ÁR</b>bruttó 2&nbsp;990&nbsp;Ft/hó, ha&nbsp;december&nbsp;8-ig előfizetsz</div>
 <div class="actions">
-<a class="btn" href="#regisztracio">Értesítést kérek az indulásról</a>
-<a class="btn ghost" href="#konferencia">Élő bemutató november 3-án</a>
+<a class="btn" href="#regisztracio">Értesítést kérek</a>
+<a class="btn line" href="#konferencia">Találkozzunk november&nbsp;3-án</a>
 </div>
-<p class="date-note">Indulás: november 9. Az előregisztráció ingyenes, és nem jár fizetési kötelezettséggel.</p>
+<p class="date-note">Indulás november&nbsp;9-én. Az&nbsp;előregisztráció&nbsp;ingyenes.</p>
 </div>
-
-<!-- Illusztráció. Ha elkészül a valódi képernyőkép, ezt a blokkot érdemes lecserélni egy <img>-re. -->
-<div>
-<div class="app" role="img" aria-label="A VABook heti munkaidő-áttekintésének illusztrációja: napi óraszámok, ügyfelenkénti bontás és elkészíthető teljesítésigazolás">
-<div class="bar"><i></i><i></i><i></i><span>VABOOK · EZ A HÉT</span></div>
-<div class="body">
-<div class="row"><h4>Rögzített munkaidő</h4><div class="tot">31,5 <small>óra</small></div></div>
-<div class="bars" aria-hidden="true"><div style="height:62%"></div><div style="height:84%"></div><div class="g" style="height:100%"></div><div style="height:70%"></div><div style="height:46%"></div></div>
-<div class="days" aria-hidden="true"><span>H</span><span>K</span><span>SZE</span><span>CS</span><span>P</span></div>
-<div class="client"><i class="dot"></i>Ügyfél A · adminisztráció<b>12,0 ó</b></div>
-<div class="client"><i class="dot g"></i>Ügyfél B · közösségi média<b>10,5 ó</b></div>
-<div class="client"><i class="dot"></i>Ügyfél C · levelezés, naptár<b>9,0 ó</b></div>
-<div class="tig">Havi teljesítésigazolás<span>Elkészíthető →</span></div>
-</div>
-</div>
-<p class="illu-note">Illusztráció</p>
-</div>
+<div class="stage"><figure class="shot"><!-- KÉP: Az app nyitóképernyője (heti munkaidő) --><span>Az&nbsp;app nyitóképernyője (heti&nbsp;munkaidő)</span></figure></div>
 </div>
 </section>
 
-<section class="pain">
+<section class="about">
 <div class="wrap">
-<p class="kick">Ismerős?</p>
-<h2>Az óraszámláló az egyik appban, az ügyféllista Excelben, a teljesítésigazolás Wordben.</h2>
-<p>Hónap végén pedig összerakod az egészet, kézzel. A VABookot azért fejlesztettük, hogy a munkád adminisztrációja egy helyen legyen, és ne a szabadidődből menjen el.</p>
-<div class="chips" aria-label="Amit a VABook kivált">
-<span><s>3 külön táblázat</s></span><span><s>hónap végi óraösszesítés</s></span><span><s>„mennyit kérjek ezért?”</s></span><span><s>„mennyi pénz jön be jövő hónapban?”</s></span>
+<div class="card">
+<figure class="shot"><!-- KÉP: Fotó: Lili és Gyula a laptop mellett --><span>Fotó: Lili és&nbsp;Gyula a&nbsp;laptop&nbsp;mellett</span></figure>
+<div>
+<p class="kick">Kik vagyunk</p>
+<h2>Ismerjük a&nbsp;hónap&nbsp;végét.</h2>
+<p>Az&nbsp;NK Studio virtuális asszisztenciával indult. Tudjuk, milyen, amikor az&nbsp;órák az&nbsp;egyik appban vannak, az&nbsp;ügyfelek egy&nbsp;táblázatban, a&nbsp;teljesítésigazolás pedig egy&nbsp;harmadik&nbsp;helyen.</p>
+<p>A&nbsp;VA&nbsp;bookot ezért építettük: hogy&nbsp;mindez egy&nbsp;helyen legyen, és&nbsp;a&nbsp;munkád adminisztrációja ne&nbsp;vegyen el több időt, mint maga&nbsp;a&nbsp;munka.</p>
+</div>
 </div>
 </div>
 </section>
 
 <section class="feat" aria-labelledby="funkciok">
 <div class="wrap">
-<p class="kick">Funkciók</p>
-<h2 class="sec-h" id="funkciok">Egy alkalmazás, ami a VA-k mindennapjaira készült</h2>
-<div class="grid">
-<div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A55C" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></div><h3>Munkaidőmérés</h3><p>Kövesd a munkaóráidat ügyfelenként és projektenként, átlátható heti nézetben.</p></div>
-<div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A55C" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 010 7M18.5 14.8c1.6.8 2.7 2.6 3 5.2"/></svg></div><h3>Ügyfél- és projektkezelés</h3><p>Az ügyfeleid, a feladataid és a hozzájuk tartozó dokumentumok rendszerezve, egy helyen.</p></div>
-<div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A55C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 14l2 2 4-4"/></svg></div><h3>Teljesítésigazolások</h3><p>Havi teljesítésigazolás a rögzített munkaidőd alapján, összesítés és másolgatás nélkül.</p></div>
-<div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A55C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 01-2.8 0L3 13V3h10l7.6 7.6a2 2 0 010 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div><h3>Árazási segédlet</h3><p>Tervezd meg a saját óradíjadat tudatosan, és készíts belőle ajánlatot.</p></div>
-<div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A55C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg></div><h3>Cashflow-áttekintés</h3><p>Lásd a várható számlázható bevételedet, a rögzített kiadásaidat és a kettő különbségét.</p></div>
-<div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A55C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div><h3>Jegyzetek és dokumentumok</h3><p>Minden fontos információ ügyfelenként rendszerezve, hogy ne a levelezésben keresgélj.</p></div>
+<p class="kick">Mit tud&nbsp;a&nbsp;VA&nbsp;book</p>
+<h2 class="sec-h" id="funkciok">Öt dolog, amit eddig kézzel&nbsp;csináltál</h2>
+<div class="rows">
+<div class="row"><div class="txt"><span class="step">1</span><h3>Munkaidőmérés</h3><p>Egy&nbsp;kattintással indítod, ügyfélhez és&nbsp;projekthez kötöd. A&nbsp;heti nézetben egyben látod, mennyit dolgoztál&nbsp;és&nbsp;kinek.</p></div><figure class="shot"><!-- KÉP: Képernyő: időmérés és heti nézet --><span>Képernyő: időmérés és&nbsp;heti&nbsp;nézet</span></figure></div>
+<div class="row"><div class="txt"><span class="step">2</span><h3>Teljesítésigazolás</h3><p>A&nbsp;hónap végén a&nbsp;rögzített munkaidődből készül el, összesítés és&nbsp;másolgatás&nbsp;nélkül.</p></div><figure class="shot"><!-- KÉP: Képernyő: kész teljesítésigazolás --><span>Képernyő: kész&nbsp;teljesítésigazolás</span></figure></div>
+<div class="row"><div class="txt"><span class="step">3</span><h3>Árazási segédlet</h3><p>A&nbsp;saját költségeidből és&nbsp;a&nbsp;vállalható óráidból számolja ki az&nbsp;óradíjadat, és&nbsp;ebből készíthetsz&nbsp;ajánlatot.</p></div><figure class="shot"><!-- KÉP: Képernyő: árazási segédlet --><span>Képernyő: árazási&nbsp;segédlet</span></figure></div>
+<div class="row"><div class="txt"><span class="step">4</span><h3>Cashflow</h3><p>Látod a&nbsp;várható számlázható összeget, a&nbsp;kiadásaidat és&nbsp;a&nbsp;kettő különbségét. Tervezéshez készült,&nbsp;nem&nbsp;könyveléshez.</p></div><figure class="shot"><!-- KÉP: Képernyő: cashflow-áttekintés --><span>Képernyő: cashflow-áttekintés</span></figure></div>
+<div class="row"><div class="txt"><span class="step">5</span><h3>Ügyfelek, jegyzetek,&nbsp;dokumentumok</h3><p>Minden ügyfeled adatai, feladatai és&nbsp;fájljai egy&nbsp;helyen, hogy&nbsp;ne&nbsp;a&nbsp;levelezésben&nbsp;keresgélj.</p></div><figure class="shot"><!-- KÉP: Képernyő: ügyféllista és jegyzetek --><span>Képernyő: ügyféllista&nbsp;és&nbsp;jegyzetek</span></figure></div>
 </div>
 </div>
 </section>
 
 <section class="offer" id="alapitoi-ar" aria-labelledby="ajanlat">
 <div class="wrap">
-<p class="kick">Alapítói ajánlat · november 9. és december 8. között</p>
-<h2 id="ajanlat">2 990 Ft/hó. <em>És ennyi is marad.</em></h2>
+<p class="kick">Alapítói ajánlat · november&nbsp;9. és&nbsp;december&nbsp;8.&nbsp;között</p>
+<h2 id="ajanlat">2&nbsp;990&nbsp;Ft/hó. <em>És&nbsp;ennyi&nbsp;is&nbsp;marad.</em></h2>
 <div class="prices">
 <div class="price main">
-<div class="lbl">Nov. 9. és dec. 8. között előfizetőknek</div>
-<div class="num">2 990 Ft <small>/ hó, bruttó</small></div>
-<p>Amíg az előfizetésed folyamatosan aktív, ez az árad akkor is megmarad, amikor az új előfizetők már többet fizetnek.</p>
-<span class="save">Évi 12 000 Ft-tal kevesebb a normál árnál</span>
+<div class="lbl">Nov.&nbsp;9. és&nbsp;dec.&nbsp;8. között előfizetőknek</div>
+<div class="num">2&nbsp;990&nbsp;Ft <small>/ hó, bruttó</small></div>
+<p>Amíg az&nbsp;előfizetésed folyamatosan aktív, ez&nbsp;az&nbsp;árad akkor&nbsp;is&nbsp;megmarad, amikor az&nbsp;új előfizetők már többet&nbsp;fizetnek.</p>
+<span class="save">Évi 12&nbsp;000&nbsp;Ft-tal kevesebb a&nbsp;normál&nbsp;árnál</span>
 </div>
 <div class="price">
 <div class="lbl">Később csatlakozóknak</div>
-<div class="num">3 990 Ft <small>/ hó, bruttó</small></div>
-<p>A normál havi előfizetési díj december 9-től csatlakozóknak.</p>
+<div class="num">3&nbsp;990&nbsp;Ft <small>/ hó, bruttó</small></div>
+<p>A&nbsp;normál havi előfizetési díj december&nbsp;9-től&nbsp;csatlakozóknak.</p>
 </div>
 </div>
 <ul class="rules">
-<li>A VABook november 9-én indul. Az alapítói ár a november 9. és december 8. között induló előfizetésekre jár.</li>
-<li>Az alapítói árat az előfizetés megkezdésével biztosítod. Az előregisztráció önmagában még nem foglalja le.</li>
-<li>Ha lemondod az előfizetésedet, és később visszatérsz, már az akkor érvényes normál díj vonatkozik rád.</li>
-<li>Nem csak az első hónapra szól: a havi 2 990 Ft addig marad, amíg előfizető vagy.</li>
+<li>A&nbsp;VA&nbsp;book november&nbsp;9-én indul. Az&nbsp;alapítói ár a&nbsp;november&nbsp;9. és&nbsp;december&nbsp;8. között induló előfizetésekre&nbsp;jár.</li>
+<li>Az&nbsp;alapítói árat az&nbsp;előfizetés megkezdésével biztosítod. Az&nbsp;előregisztráció önmagában még nem&nbsp;foglalja&nbsp;le.</li>
+<li>Ha&nbsp;lemondod az&nbsp;előfizetésedet, és&nbsp;később visszatérsz, már az&nbsp;akkor érvényes normál díj vonatkozik&nbsp;rád.</li>
+<li>Nem&nbsp;csak az&nbsp;első hónapra szól: a&nbsp;havi 2&nbsp;990&nbsp;Ft addig marad, amíg előfizető&nbsp;vagy.</li>
 </ul>
 </div>
 </section>
@@ -289,35 +254,35 @@ footer .links{display:flex;gap:22px;flex-wrap:wrap}
 <div class="wrap">
 <div class="intro">
 <p class="kick">Előregisztráció</p>
-<h2 id="reg-cim">Légy az elsők között.</h2>
-<p>Iratkozz fel az indulási listára, és november 9-én elsőként küldjük az előfizetési linket az alapítói árral.</p>
-<p>Ha megírod, mi viszi el most a legtöbb időd, aszerint finomítjuk az első verziót. A VABookot VA-kkal együtt építjük, nem helyettük.</p>
+<h2 id="reg-cim">Légy az&nbsp;elsők&nbsp;között.</h2>
+<p>Iratkozz fel az&nbsp;indulási listára, és&nbsp;november&nbsp;9-én elsőként küldjük az&nbsp;előfizetési linket az&nbsp;alapítói&nbsp;árral.</p>
+<p>Ha&nbsp;megírod, mi&nbsp;viszi el most a&nbsp;legtöbb időd, aszerint finomítjuk az&nbsp;első verziót. A&nbsp;VA&nbsp;bookot <span class="nw">VA-kkal</span> együtt építjük,&nbsp;nem&nbsp;helyettük.</p>
 </div>
 <div class="form">
 <form id="vabook-form" novalidate>
 <div class="f"><label for="nev">Keresztnév</label><input id="nev" name="nev" autocomplete="given-name" required maxlength="80"></div>
 <div class="f"><label for="email">E-mail cím</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="120"></div>
-<div class="f"><label for="megjegyzes">Mi viszi el most a legtöbb időd? <small>(nem kötelező)</small></label>
+<div class="f"><label for="megjegyzes">Mi&nbsp;viszi el most a&nbsp;legtöbb időd? <small>(nem&nbsp;kötelező)</small></label>
 <select id="megjegyzes" name="megjegyzes">
 <option value="">Válassz</option>
 <option>Munkaidő összesítése</option>
 <option>Teljesítésigazolás, számlázás előkészítése</option>
-<option>Ügyfelek és feladatok követése</option>
+<option>Ügyfelek és&nbsp;feladatok követése</option>
 <option>Árazás, ajánlatkészítés</option>
-<option>Nem látom előre a bevételeimet</option>
-<option>Most indítom a VA-vállalkozásom</option>
+<option>Nem&nbsp;látom előre a&nbsp;bevételeimet</option>
+<option>Most indítom a&nbsp;<span class="nw">VA-vállalkozásom</span></option>
 </select></div>
 <div class="hp" aria-hidden="true"><label for="website">Weboldal</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
-<label class="check"><input type="checkbox" id="consent" name="consent" required><span>Hozzájárulok, hogy az NK Studio e-mailben értesítsen a VABook indulásáról és az alapítói ajánlatról. A hozzájárulást bármikor visszavonhatom. Részletek az <a href="/adatkezeles#vabook" target="_blank" rel="noopener">adatkezelési tájékoztatóban</a>.</span></label>
+<label class="check"><input type="checkbox" id="consent" name="consent" required><span>Hozzájárulok, hogy&nbsp;az&nbsp;NK Studio e-mailben értesítsen a&nbsp;VA&nbsp;book indulásáról és&nbsp;az&nbsp;alapítói ajánlatról. A&nbsp;hozzájárulást bármikor visszavonhatom. Részletek az <a href="/adatkezeles#vabook" target="_blank" rel="noopener">adatkezelési tájékoztatóban</a>.</span></label>
 <p class="err" id="err" role="alert"></p>
-<button class="btn" type="submit" id="submit">Értesítést kérek az indulásról</button>
-<p class="fine">Ingyenes, és nem jár fizetési kötelezettséggel.</p>
+<button class="btn" type="submit" id="submit">Értesítést kérek&nbsp;az&nbsp;indulásról</button>
+<p class="fine">Ingyenes, és&nbsp;nem&nbsp;jár fizetési&nbsp;kötelezettséggel.</p>
 </form>
 <div class="done" id="done" role="status" aria-live="polite">
 <div class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C9A55C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div>
-<h3>Fent vagy a listán.</h3>
-<p>November 9-én elsőként küldjük az előfizetési linket az alapítói árral.</p>
-<p>November 3-án gyere el a standunkhoz a Közös Siker Konferencián, és próbáld ki élőben.</p>
+<h3>Fent&nbsp;vagy&nbsp;a&nbsp;listán.</h3>
+<p>November 9-én elsőként küldjük az&nbsp;előfizetési linket az&nbsp;alapítói&nbsp;árral.</p>
+<p>November 3-án gyere el a&nbsp;standunkhoz a&nbsp;Közös Siker Konferencián, és&nbsp;próbáld ki&nbsp;élőben.</p>
 </div>
 </div>
 </div>
@@ -328,10 +293,10 @@ footer .links{display:flex;gap:22px;flex-wrap:wrap}
 <div class="box">
 <div class="cal" aria-hidden="true"><span>NOVEMBER</span><b>3</b></div>
 <div>
-<h2 id="konf-cim">Találkozzunk a Közös Siker Konferencián.</h2>
-<p>2026. november 3-án élőben mutatjuk be a VABookot. Nézd meg működés közben, próbáld ki a funkciókat, és mondd el, milyen eszközre van a legnagyobb szükséged a VA-munkádban.</p>
+<h2 id="konf-cim">Találkozzunk a&nbsp;Közös Siker&nbsp;Konferencián.</h2>
+<p>2026. november&nbsp;3-án élőben mutatjuk be a&nbsp;VA&nbsp;bookot. Nézd meg&nbsp;működés közben, próbáld ki a&nbsp;funkciókat, és&nbsp;mondd el, milyen eszközre van a&nbsp;legnagyobb szükséged&nbsp;a&nbsp;<span class="nw">VA-munkádban</span>.</p>
 </div>
-<a class="btn" href="#regisztracio">Feliratkozom</a>
+<a class="btn" href="https://virtera.hu/kozossikerkonferencia2026/#jegyek" target="_blank" rel="noopener">Jegyek a&nbsp;konferenciára</a>
 </div>
 </div>
 </section>
@@ -339,26 +304,26 @@ footer .links{display:flex;gap:22px;flex-wrap:wrap}
 <section class="faq" aria-labelledby="gyik">
 <div class="wrap">
 <p class="kick">Gyakori kérdések</p>
-<h2 class="sec-h" id="gyik" style="margin-bottom:28px">Amit érdemes tudni</h2>
-<details><summary>Mikor indul a VABook?</summary><p>November 3-án mutatjuk be élőben a Közös Siker Konferencián, az előfizetés november 9-én nyílik meg. Az alapítói ár a november 9. és december 8. között induló előfizetésekre jár.</p></details>
-<details><summary>Kell most fizetnem valamit?</summary><p>Nem. Az előregisztráció ingyenes, és semmilyen kötelezettséggel nem jár. Fizetni csak akkor kell, ha az indulás után előfizetsz.</p></details>
-<details><summary>Meddig marad a 2 990 Ft-os ár?</summary><p>A bruttó 2 990 Ft-os havi díj addig marad, amíg az előfizetésed folyamatosan aktív. Ha lemondod, és később újra előfizetsz, akkor már az akkor érvényes normál díj vonatkozik rád.</p></details>
-<details><summary>Kinek szól?</summary><p>Virtuális asszisztenseknek, akár most indulsz, akár már több ügyféllel dolgozol, és szeretnéd egy helyen látni a munkaidődet, az ügyfeleidet és a bevételeidet.</p></details>
-<details><summary>Mit mutat a cashflow-áttekintés?</summary><p>A rögzített munkaidőd alapján várható számlázható összeget, a rögzített kiadásaidat és a kettő különbségét. Ez tervezési segítség: a várható számlázható összeg nem azonos a ténylegesen befolyt bevétellel.</p></details>
+<h2 class="sec-h" id="gyik" style="margin-bottom:28px">Amit érdemes&nbsp;tudni</h2>
+<details><summary>Mikor indul&nbsp;a&nbsp;VA&nbsp;book?</summary><p>November 3-án mutatjuk be élőben a&nbsp;Közös Siker Konferencián, az&nbsp;előfizetés november&nbsp;9-én nyílik meg. Az&nbsp;alapítói ár a&nbsp;november&nbsp;9. és&nbsp;december&nbsp;8. között induló előfizetésekre&nbsp;jár.</p></details>
+<details><summary>Kell most fizetnem&nbsp;valamit?</summary><p>Nem. Az&nbsp;előregisztráció ingyenes, és&nbsp;semmilyen kötelezettséggel nem&nbsp;jár. Fizetni csak akkor kell, ha&nbsp;az&nbsp;indulás után&nbsp;előfizetsz.</p></details>
+<details><summary>Meddig marad a&nbsp;2&nbsp;990&nbsp;Ft-os&nbsp;ár?</summary><p>A&nbsp;bruttó 2&nbsp;990&nbsp;Ft-os havi díj addig marad, amíg az&nbsp;előfizetésed folyamatosan aktív. Ha&nbsp;lemondod, és&nbsp;később újra előfizetsz, akkor már az&nbsp;akkor érvényes normál díj vonatkozik&nbsp;rád.</p></details>
+<details><summary>Kinek szól?</summary><p>Virtuális asszisztenseknek, akár most indulsz, akár már több ügyféllel dolgozol, és&nbsp;szeretnéd egy&nbsp;helyen látni a&nbsp;munkaidődet, az&nbsp;ügyfeleidet&nbsp;és&nbsp;a&nbsp;bevételeidet.</p></details>
+<details><summary>Mit mutat&nbsp;a&nbsp;cashflow-áttekintés?</summary><p>A&nbsp;rögzített munkaidőd alapján várható számlázható összeget, a&nbsp;rögzített kiadásaidat és&nbsp;a&nbsp;kettő különbségét. Ez&nbsp;tervezési segítség: a&nbsp;várható számlázható összeg nem&nbsp;azonos a&nbsp;ténylegesen befolyt&nbsp;bevétellel.</p></details>
 </div>
 </section>
 
-<div class="sign"><b>VABook. A VA-vállalkozásod. Egy helyen.</b>Az NK Studio fejlesztése.</div>
+<div class="sign"><b>VA&nbsp;book. A&nbsp;<span class="nw">VA-vállalkozásod</span>&nbsp;egy&nbsp;helyen.</b>Az&nbsp;NK Studio fejlesztése.</div>
 </main>
 
-<footer><div class="in"><span>© 2026 NK Studio</span><div class="links"><a href="/adatkezeles">Adatkezelés</a><a href="/impresszum">Impresszum</a><a href="https://www.linkedin.com/company/107883841/" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
+<footer><div class="in"><span>© 2026 NK&nbsp;Studio</span><div class="links"><a href="/adatkezeles">Adatkezelés</a><a href="/impresszum">Impresszum</a><a href="https://www.linkedin.com/company/107883841/" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
 
 <script>
 const CONFIG = {
   // 1. út (ajánlott): HubSpot-űrlap. Ha létrehoztad a HubSpotban, ide írd az űrlap azonosítóját (GUID).
   HUBSPOT_PORTAL_ID: '149553636',
   HUBSPOT_FORM_GUID: '',
-  // 2. út: Make webhook ("VABook – előregisztráció" forgatókönyv). Akkor használjuk, ha nincs HubSpot-űrlap.
+  // 2. út: Make webhook ("VA book – előregisztráció" forgatókönyv). Akkor használjuk, ha nincs HubSpot-űrlap.
   MAKE_WEBHOOK_URL: 'https://hook.eu1.make.com/phofd9544hgklnw8phcgz1m75gi6avvv'
 };
 
@@ -403,7 +368,7 @@ form.addEventListener('submit', async (e) => {
       const res = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${CONFIG.HUBSPOT_PORTAL_ID}/${CONFIG.HUBSPOT_FORM_GUID}`, {
         method:'POST', headers:{'Content-Type':'application/json'},
         body: JSON.stringify({fields, context:{pageUri:location.href, pageName:document.title},
-          legalConsentOptions:{consent:{consentToProcess:true, text:'Hozzájárulok, hogy az NK Studio e-mailben értesítsen a VABook indulásáról és az alapítói ajánlatról.'}}})
+          legalConsentOptions:{consent:{consentToProcess:true, text:'Hozzájárulok, hogy az NK Studio e-mailben értesítsen a VA book indulásáról és az alapítói ajánlatról.'}}})
       });
       if (!res.ok) throw new Error('HubSpot ' + res.status);
     } else {
