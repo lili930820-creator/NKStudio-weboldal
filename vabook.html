@@ -60,16 +60,17 @@ header .cta{display:inline-flex;align-items:center;min-height:44px;padding:0 20p
 .btn.line{background:transparent;color:var(--ej);border:1.5px solid var(--ej)}
 .date-note{margin:18px 0 0;font-size:14px;color:var(--halvany)}
 .stage{background:radial-gradient(120% 120% at 0% 0%,#2C5443 0%,var(--mely) 45%,var(--ej) 100%);border-radius:32px;padding:34px;box-shadow:0 30px 70px rgba(15,26,21,.22)}
-.shot{margin:0;border-radius:18px;overflow:hidden;background:#EEEAE0;border:1px solid rgba(255,255,255,.18);aspect-ratio:16/10;display:grid;place-items:center;text-align:center;color:#7C847E;font-size:14px;font-weight:600;padding:16px}
-.shot img{width:100%;height:100%;object-fit:cover;display:block}
+.shot{margin:0;border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--vonal);box-shadow:0 14px 34px rgba(15,26,21,.10)}
+.shot img{width:100%;height:auto;display:block}
 .stage .shot{box-shadow:0 18px 40px rgba(0,0,0,.35)}
 
 /* Bemutatkozás */
 .about{padding:20px 0 70px}
-.about .card{background:var(--feher);border:1px solid var(--vonal);border-radius:28px;padding:34px;display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center}
-.about .shot{aspect-ratio:4/3;background:#E9E4D8;border:0}
-.about h2{font-size:clamp(26px,3vw,36px);font-weight:900;letter-spacing:-.8px;color:var(--ej);margin-bottom:14px}
-.about p{margin:0 0 12px;color:var(--halvany);font-size:18px}
+.about .card{background:radial-gradient(120% 140% at 0% 0%,#2C5443 0%,var(--mely) 45%,var(--ej) 100%);border-radius:30px;padding:46px 50px;color:#C9D6CD}
+.about .card>div{max-width:760px}
+.about h2{font-size:clamp(26px,3vw,36px);font-weight:900;letter-spacing:-.8px;color:#fff;margin-bottom:14px}
+.about .kick{color:var(--arany)}
+.about p{margin:0 0 12px;color:#C9D6CD;font-size:18px}
 
 /* Funkciók */
 .feat{padding:20px 0 90px}
@@ -150,7 +151,7 @@ footer a{color:#A9BDB0;display:inline-flex;align-items:center;min-height:32px}
 footer .links{display:flex;gap:22px;flex-wrap:wrap}
 
 @media (max-width:980px){
- .hero .wrap,.reg .wrap,.about .card,.row{grid-template-columns:1fr;gap:28px}
+ .hero .wrap,.reg .wrap,.row{grid-template-columns:1fr;gap:28px}
  .row:nth-child(even) .txt{order:0}
  .prices{grid-template-columns:1fr}
  .rules{grid-template-columns:1fr}
@@ -164,7 +165,8 @@ footer .links{display:flex;gap:22px;flex-wrap:wrap}
  .actions .btn{width:100%}
  .pill{border-radius:18px;padding:12px 16px;flex-direction:column;align-items:flex-start;gap:8px}
  .stage{padding:16px;border-radius:24px}
- .row,.about .card{padding:22px}
+ .row{padding:22px}
+ .about .card{padding:30px 22px}
  .form{padding:24px 18px}
  .offer,.reg{padding:64px 0}
 }
@@ -192,14 +194,13 @@ footer .links{display:flex;gap:22px;flex-wrap:wrap}
 </div>
 <p class="date-note">Indulás november&nbsp;9-én. Az&nbsp;előregisztráció&nbsp;ingyenes.</p>
 </div>
-<div class="stage"><figure class="shot"><!-- KÉP: Az app nyitóképernyője (heti munkaidő) --><span>Az&nbsp;app nyitóképernyője (heti&nbsp;munkaidő)</span></figure></div>
+<div class="stage"><figure class="shot"><img src="/img/vabook/kezdolap.webp" alt="A VA book kezdőképernyője a havi célokkal és a fő funkciókkal" width="1572" height="817"></figure></div>
 </div>
 </section>
 
 <section class="about">
 <div class="wrap">
 <div class="card">
-<figure class="shot"><!-- KÉP: Fotó: Lili és Gyula a laptop mellett --><span>Fotó: Lili és&nbsp;Gyula a&nbsp;laptop&nbsp;mellett</span></figure>
 <div>
 <p class="kick">Kik vagyunk</p>
 <h2>Ismerjük a&nbsp;hónap&nbsp;végét.</h2>
@@ -215,11 +216,11 @@ footer .links{display:flex;gap:22px;flex-wrap:wrap}
 <p class="kick">Mit tud&nbsp;a&nbsp;VA&nbsp;book</p>
 <h2 class="sec-h" id="funkciok">Öt dolog, amit eddig kézzel&nbsp;csináltál</h2>
 <div class="rows">
-<div class="row"><div class="txt"><span class="step">1</span><h3>Munkaidőmérés</h3><p>Egy&nbsp;kattintással indítod, ügyfélhez és&nbsp;projekthez kötöd. A&nbsp;heti nézetben egyben látod, mennyit dolgoztál&nbsp;és&nbsp;kinek.</p></div><figure class="shot"><!-- KÉP: Képernyő: időmérés és heti nézet --><span>Képernyő: időmérés és&nbsp;heti&nbsp;nézet</span></figure></div>
-<div class="row"><div class="txt"><span class="step">2</span><h3>Teljesítésigazolás</h3><p>A&nbsp;hónap végén a&nbsp;rögzített munkaidődből készül el, összesítés és&nbsp;másolgatás&nbsp;nélkül.</p></div><figure class="shot"><!-- KÉP: Képernyő: kész teljesítésigazolás --><span>Képernyő: kész&nbsp;teljesítésigazolás</span></figure></div>
-<div class="row"><div class="txt"><span class="step">3</span><h3>Árazási segédlet</h3><p>A&nbsp;saját költségeidből és&nbsp;a&nbsp;vállalható óráidból számolja ki az&nbsp;óradíjadat, és&nbsp;ebből készíthetsz&nbsp;ajánlatot.</p></div><figure class="shot"><!-- KÉP: Képernyő: árazási segédlet --><span>Képernyő: árazási&nbsp;segédlet</span></figure></div>
-<div class="row"><div class="txt"><span class="step">4</span><h3>Cashflow</h3><p>Látod a&nbsp;várható számlázható összeget, a&nbsp;kiadásaidat és&nbsp;a&nbsp;kettő különbségét. Tervezéshez készült,&nbsp;nem&nbsp;könyveléshez.</p></div><figure class="shot"><!-- KÉP: Képernyő: cashflow-áttekintés --><span>Képernyő: cashflow-áttekintés</span></figure></div>
-<div class="row"><div class="txt"><span class="step">5</span><h3>Ügyfelek, jegyzetek,&nbsp;dokumentumok</h3><p>Minden ügyfeled adatai, feladatai és&nbsp;fájljai egy&nbsp;helyen, hogy&nbsp;ne&nbsp;a&nbsp;levelezésben&nbsp;keresgélj.</p></div><figure class="shot"><!-- KÉP: Képernyő: ügyféllista és jegyzetek --><span>Képernyő: ügyféllista&nbsp;és&nbsp;jegyzetek</span></figure></div>
+<div class="row"><div class="txt"><span class="step">1</span><h3>Munkaidőmérés</h3><p>Egy&nbsp;kattintással indítod, ügyfélhez és&nbsp;projekthez kötöd. A&nbsp;heti nézetben egyben látod, mennyit dolgoztál&nbsp;és&nbsp;kinek.</p></div><figure class="shot"><img src="/img/vabook/idomero.webp" alt="Az időmérő heti naptárnézete ügyfelenkénti bejegyzésekkel" width="1566" height="978" loading="lazy"></figure></div>
+<div class="row"><div class="txt"><span class="step">2</span><h3>Teljesítésigazolás</h3><p>A&nbsp;hónap végén a&nbsp;rögzített munkaidődből készül el, összesítés és&nbsp;másolgatás&nbsp;nélkül.</p></div><figure class="shot"><img src="/img/vabook/tig.webp" alt="Havi ügyfélösszesítő, ügyfelenként egy gombbal elkészíthető teljesítésigazolással" width="1245" height="395" loading="lazy"></figure></div>
+<div class="row"><div class="txt"><span class="step">3</span><h3>Árazási segédlet</h3><p>A&nbsp;saját költségeidből és&nbsp;a&nbsp;vállalható óráidból számolja ki az&nbsp;óradíjadat, és&nbsp;ebből készíthetsz&nbsp;ajánlatot.</p></div><figure class="shot"><img src="/img/vabook/arazas.webp" alt="Az árazási segédlet első lépése: tapasztalat és szakterület" width="1566" height="574" loading="lazy"></figure></div>
+<div class="row"><div class="txt"><span class="step">4</span><h3>Cashflow</h3><p>Látod a&nbsp;várható számlázható összeget, a&nbsp;kiadásaidat és&nbsp;a&nbsp;kettő különbségét. Tervezéshez készült,&nbsp;nem&nbsp;könyveléshez.</p></div><figure class="shot"><img src="/img/vabook/cashflow.webp" alt="A cashflow-nézet: várható bevétel, kiadások és becsült eredmény" width="1568" height="817" loading="lazy"></figure></div>
+<div class="row"><div class="txt"><span class="step">5</span><h3>Ügyfelek, jegyzetek,&nbsp;dokumentumok</h3><p>Minden ügyfeled adatai, feladatai és&nbsp;fájljai egy&nbsp;helyen, hogy&nbsp;ne&nbsp;a&nbsp;levelezésben&nbsp;keresgélj.</p></div><figure class="shot"><img src="/img/vabook/jegyzetek.webp" alt="A jegyzetek nézet keresővel és egy jegyzetkártyával" width="1320" height="510" loading="lazy"></figure></div>
 </div>
 </div>
 </section>
