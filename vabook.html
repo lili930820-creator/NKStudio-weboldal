@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VABook: alkalmazás virtuális asszisztenseknek | NK Studio</title>
+<meta name="description" content="Munkaidőmérés, ügyfélkezelés, teljesítésigazolás, árazási segédlet és cashflow egy helyen, virtuális asszisztenseknek. Alapítói ár: 2 990 Ft/hó az indulás első 30 napjában.">
+<link rel="canonical" href="https://www.nkstudio.hu/vabook">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NK Studio">
+<meta property="og:locale" content="hu_HU">
+<meta property="og:title" content="VABook: a VA-vállalkozásod egy helyen">
+<meta property="og:description" content="Munkaidőmérés, ügyfélkezelés, teljesítésigazolás, árazás és cashflow egy alkalmazásban. Alapítói ár: 2 990 Ft/hó, amíg előfizető maradsz.">
+<meta property="og:url" content="https://www.nkstudio.hu/vabook">
+<meta property="og:image" content="https://www.nkstudio.hu/img/og-nkstudio.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/img/nk-logo.png">
+<link rel="preload" href="/fonts/inter-400.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/inter-900.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="/fonts/inter.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"VABook","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"hu","description":"Munkaidőmérés, ügyfél- és projektkezelés, teljesítésigazolások, árazási segédlet és cashflow-áttekintés virtuális asszisztenseknek.","offers":{"@type":"Offer","price":"2990","priceCurrency":"HUF","description":"Alapítói ár az indulás első 30 napjában előfizetőknek"},"publisher":{"@type":"Organization","name":"NK Studio","url":"https://www.nkstudio.hu"}}
+</script>
+<style>
+:root{--ej:#0F1A15;--mely:#1F3A2D;--logo:#3E7A55;--arany:#C9A55C;--arany-s:#8A6A2C;--papir:#F3EFE6;--feher:#FBFAF6;--szoveg:#1F2937;--halvany:#4B5563;--vonal:#E4DFD3}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papir);color:var(--szoveg);font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.65;hyphens:manual}
+h1,h2,h3{line-height:1.15;text-wrap:balance;margin:0}
+p,li{text-wrap:pretty}
+a{color:var(--logo)}
+img{max-width:100%}
+header{position:sticky;top:0;z-index:10;background:rgba(15,26,21,.96);border-bottom:1px solid rgba(255,255,255,.08)}
+header .in{max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+header img{height:58px;width:auto;display:block}
+header nav{display:flex;gap:28px;font-size:15px;font-weight:600;align-items:center}
+header nav a{color:#fff;text-decoration:none}
+header .cta{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;background:var(--arany);color:var(--ej);font-weight:800}
+@media (max-width:760px){header nav .nl{display:none} header img{height:48px}}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.kick{font-size:13px;font-weight:800;letter-spacing:2.4px;text-transform:uppercase;color:var(--arany-s);margin:0 0 14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 26px;border-radius:999px;background:var(--arany);color:var(--ej);font-weight:800;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{filter:brightness(1.05)}
+.btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+.btn:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--arany);outline-offset:3px}
+
+/* HERO */
+.hero{background:radial-gradient(120% 90% at 85% 0%,#24473A 0%,var(--mely) 35%,var(--ej) 100%);color:#DCE6DF;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-top:72px;padding-bottom:84px}
+.mark{display:inline-flex;align-items:center;gap:10px;margin-bottom:26px}
+.mark span{font-size:28px;font-weight:800;color:#fff;letter-spacing:-.5px}
+.hero .kick{color:var(--arany)}
+.hero h1{font-size:clamp(36px,5vw,62px);font-weight:900;letter-spacing:-2px;color:#fff;margin-bottom:22px}
+.hero h1 em{font-style:normal;color:var(--arany)}
+.hero .lead{font-size:20px;line-height:1.55;max-width:560px;margin:0 0 28px;color:#C9D6CD}
+.hero .lead b{color:#fff}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;border:1px solid rgba(201,165,92,.55);font-size:15px;color:#fff;margin-bottom:30px}
+.pill b{background:var(--arany);color:var(--ej);border-radius:999px;padding:4px 12px;font-size:13px;letter-spacing:1px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.date-note{margin:20px 0 0;font-size:14px;color:#9FB3A6}
+
+/* App-illusztráció */
+.app{background:var(--feher);border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.35);color:var(--szoveg);overflow:hidden;border:1px solid rgba(255,255,255,.2)}
+.app .bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#EEEAE0;border-bottom:1px solid var(--vonal)}
+.app .bar i{width:10px;height:10px;border-radius:50%;background:#D6CFBF}
+.app .bar span{margin-left:8px;font-size:12px;font-weight:700;color:var(--halvany);letter-spacing:.5px}
+.app .body{padding:22px}
+.app .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.app h4{margin:0;font-size:15px;color:var(--ej)}
+.app .tot{font-size:28px;font-weight:900;color:var(--mely);letter-spacing:-1px}
+.app .tot small{font-size:13px;font-weight:600;color:var(--halvany);letter-spacing:0}
+.bars{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:end;height:120px;margin:4px 0 8px}
+.bars div{border-radius:8px 8px 3px 3px;background:linear-gradient(var(--logo),var(--mely))}
+.bars div.g{background:linear-gradient(#D8BC7F,var(--arany))}
+.days{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;font-size:11px;font-weight:700;color:var(--halvany);text-align:center;margin-bottom:18px}
+.client{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--vonal);font-size:14px}
+.client .dot{width:10px;height:10px;border-radius:50%;background:var(--logo);flex:none}
+.client .dot.g{background:var(--arany)}
+.client b{margin-left:auto;font-variant-numeric:tabular-nums}
+.tig{margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--ej);color:#fff;border-radius:14px;padding:12px 14px;font-size:13px;font-weight:700}
+.tig span{color:var(--arany)}
+.illu-note{font-size:12px;color:#8FA597;margin:10px 4px 0;text-align:right}
+
+/* Probléma */
+.pain{padding:84px 0 40px}
+.pain h2{font-size:clamp(30px,3.8vw,44px);font-weight:900;letter-spacing:-1.2px;color:var(--ej);max-width:820px}
+.pain p{max-width:720px;font-size:19px;color:var(--halvany);margin:18px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chips span{padding:9px 16px;border-radius:999px;background:var(--feher);border:1px solid var(--vonal);font-size:15px;font-weight:600;color:var(--mely)}
+.chips span s{color:#9AA39D}
+
+/* Funkciók */
+.feat{padding:40px 0 90px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.card{background:var(--feher);border:1px solid var(--vonal);border-radius:22px;padding:26px}
+.card .ic{width:46px;height:46px;border-radius:14px;background:var(--ej);display:grid;place-items:center;margin-bottom:18px}
+.card h3{font-size:20px;font-weight:800;color:var(--ej);margin-bottom:8px}
+.card p{margin:0;color:var(--halvany);font-size:16px}
+.sec-h{font-size:clamp(28px,3.4vw,40px);font-weight:900;letter-spacing:-1px;color:var(--ej)}
+
+/* Ajánlat */
+.offer{background:var(--ej);color:#C9D6CD;padding:90px 0}
+.offer .kick{color:var(--arany)}
+.offer h2{font-size:clamp(32px,4.4vw,54px);font-weight:900;letter-spacing:-1.5px;color:#fff;max-width:760px}
+.offer h2 em{font-style:normal;color:var(--arany)}
+.prices{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;margin:40px 0 30px}
+.price{border-radius:24px;padding:30px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
+.price.main{border:1.5px solid var(--arany);background:linear-gradient(160deg,rgba(201,165,92,.14),rgba(201,165,92,.02))}
+.price .lbl{font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#9FB3A6}
+.price.main .lbl{color:var(--arany)}
+.price .num{font-size:clamp(44px,5.5vw,64px);font-weight:900;letter-spacing:-2px;color:#fff;line-height:1.05;margin:12px 0 6px}
+.price .num small{font-size:20px;font-weight:700;letter-spacing:0;color:#C9D6CD}
+.price p{margin:0;font-size:16px}
+.save{display:inline-block;margin-top:18px;padding:7px 14px;border-radius:999px;background:rgba(201,165,92,.16);color:var(--arany);font-weight:800;font-size:14px}
+.rules{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 30px;max-width:980px}
+.rules li{position:relative;padding-left:30px;font-size:16px}
+.rules li::before{content:"";position:absolute;left:0;top:8px;width:16px;height:9px;border-left:2.5px solid var(--arany);border-bottom:2.5px solid var(--arany);transform:rotate(-45deg)}
+
+/* Űrlap */
+.reg{padding:90px 0}
+.reg .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.reg h2{font-size:clamp(30px,3.8vw,46px);font-weight:900;letter-spacing:-1.2px;color:var(--ej);margin-bottom:18px}
+.reg .intro p{color:var(--halvany);font-size:18px;margin:0 0 14px}
+.form{background:var(--feher);border:1px solid var(--vonal);border-radius:26px;padding:32px;box-shadow:0 18px 50px rgba(15,26,21,.08)}
+.f{margin-bottom:18px}
+.f label{display:block;font-size:15px;font-weight:700;color:var(--ej);margin-bottom:6px}
+.f label small{font-weight:500;color:var(--halvany)}
+.f input,.f select{width:100%;min-height:52px;padding:0 16px;border-radius:14px;border:1.5px solid #D9D3C5;background:#fff;font:inherit;font-size:16px;color:var(--szoveg)}
+.f input:focus,.f select:focus{border-color:var(--logo);outline:none}
+.check{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--halvany);margin:6px 0 22px;line-height:1.5}
+.check input{width:22px;height:22px;flex:none;margin:1px 0 0;accent-color:var(--mely)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form .btn{width:100%;background:var(--mely);color:#fff}
+.form .btn:hover{background:var(--ej)}
+.fine{font-size:13.5px;color:var(--halvany);margin:14px 0 0}
+.err{color:#9B2C2C;font-size:14px;font-weight:600;margin:-8px 0 14px;display:none}
+.done{display:none;text-align:center;padding:20px 6px}
+.done .ok{width:64px;height:64px;border-radius:50%;background:var(--mely);display:grid;place-items:center;margin:0 auto 18px}
+.done h3{font-size:26px;font-weight:900;color:var(--ej);margin-bottom:10px}
+.done p{color:var(--halvany);margin:0 0 8px}
+
+/* Konferencia */
+.conf{padding:0 0 90px}
+.conf .box{background:radial-gradient(100% 120% at 0% 0%,#24473A,var(--mely) 45%,var(--ej));border-radius:30px;color:#C9D6CD;padding:50px;display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center}
+.cal{width:118px;border-radius:20px;overflow:hidden;background:var(--feher);text-align:center}
+.cal span{display:block;background:var(--arany);color:var(--ej);font-size:13px;font-weight:900;letter-spacing:2px;padding:6px 0}
+.cal b{display:block;font-size:52px;font-weight:900;color:var(--ej);line-height:1.2;padding:6px 0 10px}
+.conf h2{font-size:clamp(26px,3vw,36px);font-weight:900;color:#fff;letter-spacing:-.8px;margin-bottom:10px}
+.conf p{margin:0;font-size:17px;max-width:560px}
+
+/* GYIK */
+.faq{padding:0 0 90px}
+.faq .wrap{max-width:860px}
+details{background:var(--feher);border:1px solid var(--vonal);border-radius:18px;padding:0 22px;margin-bottom:12px}
+summary{cursor:pointer;list-style:none;padding:20px 30px 20px 0;font-weight:800;font-size:17px;color:var(--ej);position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:0;top:16px;font-size:24px;font-weight:600;color:var(--logo)}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 20px;color:var(--halvany)}
+
+.sign{text-align:center;padding:0 0 70px;color:var(--halvany);font-size:15px}
+.sign b{display:block;font-size:22px;color:var(--ej);margin-bottom:4px;letter-spacing:-.3px}
+
+footer{background:var(--ej);color:#A9BDB0;font-size:14px}
+footer .in{max-width:1240px;margin:0 auto;padding:32px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px}
+footer a{color:#A9BDB0;display:inline-flex;align-items:center;min-height:32px}
+footer .links{display:flex;gap:22px;flex-wrap:wrap}
+
+@media (max-width:980px){
+ .hero .wrap,.reg .wrap{grid-template-columns:1fr;gap:44px}
+ .grid{grid-template-columns:1fr 1fr}
+ .prices{grid-template-columns:1fr}
+ .rules{grid-template-columns:1fr}
+ .conf .box{grid-template-columns:1fr;gap:24px;padding:34px}
+}
+@media (max-width:620px){
+ .wrap{padding:0 16px}
+ .hero .wrap{padding-top:48px;padding-bottom:60px}
+ .hero h1{letter-spacing:-1.2px}
+ .hero .lead{font-size:18px}
+ .grid{grid-template-columns:1fr}
+ .actions .btn{width:100%}
+ .form{padding:24px 18px}
+ .pain{padding-top:60px}
+ .offer,.reg{padding:64px 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="in">
+<a href="/" aria-label="NK Studio főoldal"><img src="/img/nk-logo.png" alt="NK Studio" width="70" height="58"></a>
+<nav aria-label="Fő navigáció"><a class="nl" href="/">Főoldal</a><a class="nl" href="/szolgaltatasok">Szolgáltatások</a><a class="nl" href="/blog">Blog</a><a class="cta" href="#regisztracio">Értesítést kérek</a></nav>
+</div></header>
+
+<main>
+<section class="hero">
+<div class="wrap">
+<div>
+<div class="mark" aria-label="VABook">
+<svg width="44" height="34" viewBox="0 0 44 34" aria-hidden="true"><path d="M3 15l8 9L24 5" fill="none" stroke="#3E7A55" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M26 29L33.5 7 41 29" fill="none" stroke="#F3EFE6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="33.5" cy="23.5" r="2.6" fill="#C9A55C"/></svg>
+<span>VABook</span>
+</div>
+<p class="kick">Virtuális asszisztenseknek, az NK Studiótól</p>
+<h1>A VA&#8209;vállalkozásod. <em>Egy helyen.</em></h1>
+<p class="lead">Munkaidőmérés, ügyfélkezelés, teljesítésigazolás, árazás és cashflow egyetlen magyar nyelvű alkalmazásban. <b>Több ügyfél, kevesebb adminisztráció.</b></p>
+<div class="pill"><b>ALAPÍTÓI ÁR</b>2 990 Ft/hó, amíg előfizető maradsz</div>
+<div class="actions">
+<a class="btn" href="#regisztracio">Értesítést kérek az indulásról</a>
+<a class="btn ghost" href="#konferencia">Élő bemutató november 3-án</a>
+</div>
+<p class="date-note">Az előregisztráció ingyenes, és nem jár fizetési kötelezettséggel.</p>
+</div>
+
+<!-- Illusztráció. Ha elkészül a valódi képernyőkép, ezt a blokkot érdemes lecserélni egy <img>-re. -->
+<div>
+<div class="app" role="img" aria-label="A VABook heti munkaidő-áttekintésének illusztrációja: napi óraszámok, ügyfelenkénti bontás és elkészíthető teljesítésigazolás">
+<div class="bar"><i></i><i></i><i></i><span>VABOOK · EZ A HÉT</span></div>
+<div class="body">
+<div class="row"><h4>Rögzített munkaidő</h4><div class="tot">31,5 <small>óra</small></div></div>
+<div class="bars" aria-hidden="true"><div style="height:62%"></div><div style="height:84%"></div><div class="g" style="height:100%"></div><div style="height:70%"></div><div style="height:46%"></div></div>
+<div class="days" aria-hidden="true"><span>H</span><span>K</span><span>SZE</span><span>CS</span><span>P</span></div>
+<div class="client"><i class="dot"></i>Ügyfél A · adminisztráció<b>12,0 ó</b></div>
+<div class="client"><i class="dot g"></i>Ügyfél B · közösségi média<b>10,5 ó</b></div>
+<div class="client"><i class="dot"></i>Ügyfél C · levelezés, naptár<b>9,0 ó</b></div>
+<div class="tig">Havi teljesítésigazolás<span>Elkészíthető →</span></div>
+</div>
+</div>
+<p class="illu-note">Illusztráció</p>
+</div>
+</div>
+</section>
+
+<section class="pain">
+<div class="wrap">
+<p class="kick">Ismerős?</p>
+<h2>Az óraszámláló az egyik appban, az ügyféllista Excelben, a teljesítésigazolás Wordben.</h2>
+<p>Hónap végén pedig összerakod az egészet, kézzel. A VABookot azért fejlesztettük, hogy a munkád adminisztrációja egy helyen legyen, és ne a szabadidődből menjen el.</p>
+<div class="chips" aria-label="Amit a VABook kivált">
+<span><s>3 külön táblázat</s></span><span><s>hónap végi óraösszesítés</s></span><span><s>„mennyit kérjek ezért?”</s></span><span><s>„mennyi pénz jön be jövő hónapban?”</s></span>
+</div>
+</div>
+</section>
+
+<section class="feat" aria-labelledby="funkciok">
+<div class="wrap">
+<p class="kick">Funkciók</p>
+<h2 class="sec-h" id="funkciok">Egy alkalmazás, ami a VA-k mindennapjaira készült</h2>
+<div class="grid">
+<div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A55C" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></div><h3>Munkaidőmérés</h3><p>Kövesd a munkaóráidat ügyfelenként és projektenként, átlátható heti nézetben.</p></div>
+<div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A55C" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 010 7M18.5 14.8c1.6.8 2.7 2.6 3 5.2"/></svg></div><h3>Ügyfél- és projektkezelés</h3><p>Az ügyfeleid, a feladataid és a hozzájuk tartozó dokumentumok rendszerezve, egy helyen.</p></div>
+<div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A55C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 14l2 2 4-4"/></svg></div><h3>Teljesítésigazolások</h3><p>Havi teljesítésigazolás a rögzített munkaidőd alapján, összesítés és másolgatás nélkül.</p></div>
+<div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A55C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 01-2.8 0L3 13V3h10l7.6 7.6a2 2 0 010 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div><h3>Árazási segédlet</h3><p>Tervezd meg a saját óradíjadat tudatosan, és készíts belőle ajánlatot.</p></div>
+<div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A55C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg></div><h3>Cashflow-áttekintés</h3><p>Lásd a várható számlázható bevételedet, a rögzített kiadásaidat és a kettő különbségét.</p></div>
+<div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A55C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div><h3>Jegyzetek és dokumentumok</h3><p>Minden fontos információ ügyfelenként rendszerezve, hogy ne a levelezésben keresgélj.</p></div>
+</div>
+</div>
+</section>
+
+<section class="offer" id="alapitoi-ar" aria-labelledby="ajanlat">
+<div class="wrap">
+<p class="kick">Alapítói ajánlat · csak az indulás első 30 napjában</p>
+<h2 id="ajanlat">2 990 Ft/hó. <em>És ennyi is marad.</em></h2>
+<div class="prices">
+<div class="price main">
+<div class="lbl">Az első 30 napban előfizetőknek</div>
+<div class="num">2 990 Ft <small>/ hó</small></div>
+<p>Amíg az előfizetésed folyamatosan aktív, ez az árad akkor is megmarad, amikor az új előfizetők már többet fizetnek.</p>
+<span class="save">Évi 12 000 Ft-tal kevesebb a normál árnál</span>
+</div>
+<div class="price">
+<div class="lbl">Később csatlakozóknak</div>
+<div class="num">3 990 Ft <small>/ hó</small></div>
+<p>A normál havi előfizetési díj a 30 napos alapítói időszak után.</p>
+</div>
+</div>
+<ul class="rules">
+<li>A 30 nap a VABook fizetős indulásának napjától számít. Az indulásról a feliratkozóknak elsőként szólunk.</li>
+<li>Az alapítói árat az előfizetés megkezdésével biztosítod. Az előregisztráció önmagában még nem foglalja le.</li>
+<li>Ha lemondod az előfizetésedet, és később visszatérsz, már az akkor érvényes normál díj vonatkozik rád.</li>
+<li>Nem csak az első hónapra szól: a havi 2 990 Ft addig marad, amíg előfizető vagy.</li>
+</ul>
+</div>
+</section>
+
+<section class="reg" id="regisztracio" aria-labelledby="reg-cim">
+<div class="wrap">
+<div class="intro">
+<p class="kick">Előregisztráció</p>
+<h2 id="reg-cim">Légy az elsők között.</h2>
+<p>Iratkozz fel az indulási listára, és elsőként szólunk, amikor megnyílik az előfizetés és vele az alapítói ár.</p>
+<p>Ha megírod, mi viszi el most a legtöbb időd, aszerint finomítjuk az első verziót. A VABookot VA-kkal együtt építjük, nem helyettük.</p>
+</div>
+<div class="form">
+<form id="vabook-form" novalidate>
+<div class="f"><label for="nev">Keresztnév</label><input id="nev" name="nev" autocomplete="given-name" required maxlength="80"></div>
+<div class="f"><label for="email">E-mail cím</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="120"></div>
+<div class="f"><label for="megjegyzes">Mi viszi el most a legtöbb időd? <small>(nem kötelező)</small></label>
+<select id="megjegyzes" name="megjegyzes">
+<option value="">Válassz</option>
+<option>Munkaidő összesítése</option>
+<option>Teljesítésigazolás, számlázás előkészítése</option>
+<option>Ügyfelek és feladatok követése</option>
+<option>Árazás, ajánlatkészítés</option>
+<option>Nem látom előre a bevételeimet</option>
+<option>Most indítom a VA-vállalkozásom</option>
+</select></div>
+<div class="hp" aria-hidden="true"><label for="website">Weboldal</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+<label class="check"><input type="checkbox" id="consent" name="consent" required><span>Hozzájárulok, hogy az NK Studio e-mailben értesítsen a VABook indulásáról és az alapítói ajánlatról. A hozzájárulást bármikor visszavonhatom. Részletek az <a href="/adatkezeles#vabook" target="_blank" rel="noopener">adatkezelési tájékoztatóban</a>.</span></label>
+<p class="err" id="err" role="alert"></p>
+<button class="btn" type="submit" id="submit">Értesítést kérek az indulásról</button>
+<p class="fine">Ingyenes, és nem jár fizetési kötelezettséggel.</p>
+</form>
+<div class="done" id="done" role="status" aria-live="polite">
+<div class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C9A55C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div>
+<h3>Fent vagy a listán.</h3>
+<p>Elsőként szólunk, amikor indul a VABook és megnyílik az alapítói ár.</p>
+<p>November 3-án gyere el a standunkhoz a Közös Siker Konferencián, és próbáld ki élőben.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="conf" id="konferencia" aria-labelledby="konf-cim">
+<div class="wrap">
+<div class="box">
+<div class="cal" aria-hidden="true"><span>NOVEMBER</span><b>3</b></div>
+<div>
+<h2 id="konf-cim">Találkozzunk a Közös Siker Konferencián.</h2>
+<p>2026. november 3-án élőben mutatjuk be a VABookot. Nézd meg működés közben, próbáld ki a funkciókat, és mondd el, milyen eszközre van a legnagyobb szükséged a VA-munkádban.</p>
+</div>
+<a class="btn" href="#regisztracio">Feliratkozom</a>
+</div>
+</div>
+</section>
+
+<section class="faq" aria-labelledby="gyik">
+<div class="wrap">
+<p class="kick">Gyakori kérdések</p>
+<h2 class="sec-h" id="gyik" style="margin-bottom:28px">Amit érdemes tudni</h2>
+<details><summary>Mikor indul a VABook?</summary><p>November 3-án mutatjuk be élőben, a fizetős indulás pontos napját pedig e-mailben küldjük el a feliratkozóknak. A 30 napos alapítói időszak ettől a naptól számít.</p></details>
+<details><summary>Kell most fizetnem valamit?</summary><p>Nem. Az előregisztráció ingyenes, és semmilyen kötelezettséggel nem jár. Fizetni csak akkor kell, ha az indulás után előfizetsz.</p></details>
+<details><summary>Meddig marad a 2 990 Ft-os ár?</summary><p>Amíg az előfizetésed folyamatosan aktív. Ha lemondod, és később újra előfizetsz, akkor már az akkor érvényes normál díj vonatkozik rád.</p></details>
+<details><summary>Kinek szól?</summary><p>Virtuális asszisztenseknek, akár most indulsz, akár már több ügyféllel dolgozol, és szeretnéd egy helyen látni a munkaidődet, az ügyfeleidet és a bevételeidet.</p></details>
+<details><summary>Mit mutat a cashflow-áttekintés?</summary><p>A rögzített munkaidőd alapján várható számlázható összeget, a rögzített kiadásaidat és a kettő különbségét. Ez tervezési segítség: a várható számlázható összeg nem azonos a ténylegesen befolyt bevétellel.</p></details>
+</div>
+</section>
+
+<div class="sign"><b>VABook. A VA-vállalkozásod. Egy helyen.</b>Az NK Studio fejlesztése.</div>
+</main>
+
+<footer><div class="in"><span>© 2026 NK Studio</span><div class="links"><a href="/adatkezeles">Adatkezelés</a><a href="/impresszum">Impresszum</a><a href="https://www.linkedin.com/company/107883841/" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
+
+<script>
+const CONFIG = {
+  // 1. út (ajánlott): HubSpot-űrlap. Ha létrehoztad a HubSpotban, ide írd az űrlap azonosítóját (GUID).
+  HUBSPOT_PORTAL_ID: '149553636',
+  HUBSPOT_FORM_GUID: '',
+  // 2. út: Make webhook ("VABook – előregisztráció" forgatókönyv). Akkor használjuk, ha nincs HubSpot-űrlap.
+  MAKE_WEBHOOK_URL: 'https://hook.eu1.make.com/phofd9544hgklnw8phcgz1m75gi6avvv'
+};
+
+// Forrás: ?forras=qr (konferencia), fizetett hirdetés UTM, közösségi média UTM, egyéb.
+const qs = new URLSearchParams(location.search);
+const utm = {source:(qs.get('utm_source')||'').toLowerCase(), medium:(qs.get('utm_medium')||'').toLowerCase(), campaign:qs.get('utm_campaign')||''};
+function detectSource(){
+  const f = (qs.get('forras')||'').toLowerCase();
+  if (f === 'qr' || f === 'konferencia' || f === 'konferencia_qr') return 'konferencia_qr';
+  if (['paid','cpc','ads','paid_social','hirdetes'].includes(utm.medium) || f === 'hirdetes') return 'hirdetes';
+  if (['instagram','ig','facebook','fb','tiktok','linkedin','social'].includes(utm.source) || utm.medium === 'social' || f === 'social') return 'kozossegi';
+  return 'egyeb';
+}
+const forras = detectSource();
+
+const form = document.getElementById('vabook-form');
+const err = document.getElementById('err');
+function showErr(msg, el){ err.textContent = msg; err.style.display = 'block'; if (el) el.focus(); }
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  err.style.display = 'none';
+  const nev = form.nev.value.trim();
+  const email = form.email.value.trim();
+  if (!nev) return showErr('Kérlek, add meg a keresztneved.', form.nev);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return showErr('Kérlek, ellenőrizd az e-mail címet.', form.email);
+  if (!form.consent.checked) return showErr('A feliratkozáshoz pipáld be a hozzájárulást.', form.consent);
+  if (form.website.value) return; // robotszűrő
+
+  const btn = document.getElementById('submit');
+  btn.disabled = true; btn.textContent = 'Küldés…';
+  const megjegyzes = form.megjegyzes.value;
+
+  try {
+    if (CONFIG.HUBSPOT_FORM_GUID) {
+      const today = new Date(); const midnightUtc = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+      const fields = [
+        {name:'firstname', value:nev}, {name:'email', value:email},
+        {name:'vabook_forras', value:forras}, {name:'vabook_eloregisztracio', value:String(midnightUtc)}
+      ];
+      if (megjegyzes) fields.push({name:'message', value:megjegyzes});
+      const res = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${CONFIG.HUBSPOT_PORTAL_ID}/${CONFIG.HUBSPOT_FORM_GUID}`, {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({fields, context:{pageUri:location.href, pageName:document.title},
+          legalConsentOptions:{consent:{consentToProcess:true, text:'Hozzájárulok, hogy az NK Studio e-mailben értesítsen a VABook indulásáról és az alapítói ajánlatról.'}}})
+      });
+      if (!res.ok) throw new Error('HubSpot ' + res.status);
+    } else {
+      // Űrlap-kódolás: nincs CORS-előellenőrzés, a Make mezőnként kapja meg az adatokat.
+      const body = new URLSearchParams({nev, email, megjegyzes, forras, consent:'true',
+        utm_source:utm.source, utm_medium:utm.medium, utm_campaign:utm.campaign, oldal:location.href});
+      await fetch(CONFIG.MAKE_WEBHOOK_URL, {method:'POST', mode:'no-cors', body});
+    }
+    form.style.display = 'none';
+    document.getElementById('done').style.display = 'block';
+  } catch (ex) {
+    btn.disabled = false; btn.textContent = 'Értesítést kérek az indulásról';
+    showErr('Most nem sikerült elküldeni. Próbáld újra pár perc múlva, vagy írj nekünk: karpati.lili@nkstudio.hu');
+  }
+});
+</script>
+</body>
+</html>
