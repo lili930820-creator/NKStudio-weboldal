@@ -3,6 +3,28 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.vabook.hu"
+        }
+      ],
+      "destination": "https://www.nkstudio.hu/vabook",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "vabook.hu"
+        }
+      ],
+      "destination": "https://www.nkstudio.hu/vabook",
+      "permanent": true
+    },
+    {
       "source": "/index",
       "destination": "/",
       "permanent": true
