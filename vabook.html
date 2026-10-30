@@ -340,10 +340,11 @@ footer .links{display:flex;gap:22px;flex-wrap:wrap}
 
 <script>
 const CONFIG = {
-  // 1. út (ajánlott): HubSpot-űrlap. Ha létrehoztad a HubSpotban, ide írd az űrlap azonosítóját (GUID).
+  // HubSpot-űrlap: "VA book előregisztráció" (EU adatközpont)
   HUBSPOT_PORTAL_ID: '149553636',
-  HUBSPOT_FORM_GUID: '',
-  // 2. út: Make webhook ("VA book – előregisztráció" forgatókönyv). Akkor használjuk, ha nincs HubSpot-űrlap.
+  HUBSPOT_FORM_GUID: '868d636b-1321-4196-8015-975b704591c7',
+  HUBSPOT_HOSTS: ['api-eu1.hsforms.com', 'api.hsforms.com'],
+  // Tartalék: Make webhook ("VA book – előregisztráció" forgatókönyv), itt kapjuk meg a "mi viszi el a legtöbb időd" választ is.
   MAKE_WEBHOOK_URL: 'https://hook.eu1.make.com/phofd9544hgklnw8phcgz1m75gi6avvv'
 };
 
@@ -378,25 +379,34 @@ form.addEventListener('submit', async (e) => {
   const megjegyzes = form.megjegyzes.value;
 
   try {
+    let ok = false;
     if (CONFIG.HUBSPOT_FORM_GUID) {
       const today = new Date(); const midnightUtc = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
-      const fields = [
-        {name:'firstname', value:nev}, {name:'email', value:email},
-        {name:'vabook_forras', value:forras}, {name:'vabook_eloregisztracio', value:String(midnightUtc)}
-      ];
-      if (megjegyzes) fields.push({name:'message', value:megjegyzes});
-      const res = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${CONFIG.HUBSPOT_PORTAL_ID}/${CONFIG.HUBSPOT_FORM_GUID}`, {
-        method:'POST', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({fields, context:{pageUri:location.href, pageName:document.title},
-          legalConsentOptions:{consent:{consentToProcess:true, text:'Hozzájárulok, hogy az NK Studio e-mailben elküldje a webinár linkjét, és értesítsen a VA book indulásáról és az alapítói ajánlatról.'}}})
+      const payload = JSON.stringify({
+        fields: [
+          {objectTypeId:'0-1', name:'firstname', value:nev},
+          {objectTypeId:'0-1', name:'email', value:email},
+          {objectTypeId:'0-1', name:'vabook_forras', value:forras},
+          {objectTypeId:'0-1', name:'vabook_eloregisztracio', value:String(midnightUtc)}
+        ],
+        context:{pageUri:location.href, pageName:document.title}
       });
-      if (!res.ok) throw new Error('HubSpot ' + res.status);
-    } else {
-      // Űrlap-kódolás: nincs CORS-előellenőrzés, a Make mezőnként kapja meg az adatokat.
-      const body = new URLSearchParams({nev, email, megjegyzes, forras, consent:'true',
+      for (const host of CONFIG.HUBSPOT_HOSTS) {
+        try {
+          const res = await fetch(`https://${host}/submissions/v3/integration/submit/${CONFIG.HUBSPOT_PORTAL_ID}/${CONFIG.HUBSPOT_FORM_GUID}`,
+            {method:'POST', headers:{'Content-Type':'application/json'}, body:payload});
+          if (res.ok) { ok = true; break; }
+        } catch (_) {}
+      }
+    }
+    // Tartalék: ha a HubSpot nem fogadta, a Make webhook sorba állítja a jelentkezést.
+    try {
+      const body = new URLSearchParams({nev, email, megjegyzes, forras, consent:'true', hubspot: ok ? 'ok' : 'hiba',
         utm_source:utm.source, utm_medium:utm.medium, utm_campaign:utm.campaign, oldal:location.href});
       await fetch(CONFIG.MAKE_WEBHOOK_URL, {method:'POST', mode:'no-cors', body});
-    }
+      ok = true;
+    } catch (_) {}
+    if (!ok) throw new Error('send failed');
     form.style.display = 'none';
     document.getElementById('done').style.display = 'block';
   } catch (ex) {
